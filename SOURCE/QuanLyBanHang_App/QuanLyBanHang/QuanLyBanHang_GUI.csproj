@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8D6A5E0E-1864-4C1D-8A6A-70B1305EF275}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>QuanLyBanHang</RootNamespace>
+    <AssemblyName>QuanLyBanHang</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.UI2">
+      <HintPath>..\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DangNhap.Designer.cs">
+      <DependentUpon>DangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DardBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DardBoard.Designer.cs">
+      <DependentUpon>DardBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyBanHang_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyBanHang_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DangNhap.resx">
+      <DependentUpon>DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DardBoard.resx">
+      <DependentUpon>DardBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="QuanLyBanHang_DataSet.xsc">
+      <DependentUpon>QuanLyBanHang_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyBanHang_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyBanHang_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="QuanLyBanHang_DataSet.xss">
+      <DependentUpon>QuanLyBanHang_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\icons8-bookmark-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icons\icons8-bar-chart-50.png" />
+    <Content Include="Icons\icons8-bookmark-50.png" />
+    <Content Include="Icons\icons8-briefcase-50.png" />
+    <Content Include="Icons\icons8-business-50.png" />
+    <Content Include="Icons\icons8-calendar-50.png" />
+    <Content Include="Icons\icons8-cancel-50.png" />
+    <Content Include="Icons\icons8-chat-bubble-50.png" />
+    <Content Include="Icons\icons8-close-50.png" />
+    <Content Include="Icons\icons8-connect-50.png" />
+    <Content Include="Icons\icons8-done-50.png" />
+    <Content Include="Icons\icons8-download-from-the-cloud-50.png" />
+    <Content Include="Icons\icons8-edit-50.png" />
+    <Content Include="Icons\icons8-file-50.png" />
+    <Content Include="Icons\icons8-food-cart-50.png" />
+    <Content Include="Icons\icons8-fund-accounting-50.png" />
+    <Content Include="Icons\icons8-home-50.png" />
+    <Content Include="Icons\icons8-link-50.png" />
+    <Content Include="Icons\icons8-mac-client-50.png" />
+    <Content Include="Icons\icons8-menu-50.png" />
+    <Content Include="Icons\icons8-ok-50.png" />
+    <Content Include="Icons\icons8-opened-folder-50.png" />
+    <Content Include="Icons\icons8-picture-50.png" />
+    <Content Include="Icons\icons8-plus-50.png" />
+    <Content Include="Icons\icons8-positive-dynamic-50.png" />
+    <Content Include="Icons\icons8-refresh-50.png" />
+    <Content Include="Icons\icons8-restart-50.png" />
+    <Content Include="Icons\icons8-search-50.png" />
+    <Content Include="Icons\icons8-secure-50.png" />
+    <Content Include="Icons\icons8-settings-50.png" />
+    <Content Include="Icons\icons8-shop-50.png" />
+    <Content Include="Icons\icons8-small-business-50.png" />
+    <Content Include="Icons\icons8-support-50.png" />
+    <Content Include="Icons\icons8-today-50.png" />
+    <Content Include="Icons\icons8-trash-50.png" />
+    <Content Include="Icons\icons8-upload-to-the-cloud-50.png" />
+    <Content Include="Icons\icons8-user-default-50.png" />
+    <Content Include="Icons\icons8-user-location-50.png" />
+    <Content Include="Icons\icons8-user-male-50.png" />
+    <None Include="Resources\icons8-people-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuanLyBanHang_BLL\QuanLyBanHang_BLL.csproj">
+      <Project>{5ce3e608-7508-45f2-ba58-87fd7fa8eb0c}</Project>
+      <Name>QuanLyBanHang_BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

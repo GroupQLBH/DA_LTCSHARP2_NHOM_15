@@ -1,0 +1,9 @@
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang\bin\Debug\QuanLyBanHang.exe.config
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang\bin\Debug\QuanLyBanHang.exe
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang\bin\Debug\QuanLyBanHang.pdb
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang\obj\Debug\QuanLyBanHang.csproj.AssemblyReference.cache
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang\obj\Debug\QuanLyBanHang.Properties.Resources.resources
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang\obj\Debug\QuanLyBanHang.csproj.GenerateResource.cache
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang\obj\Debug\QuanLyBanHang.csproj.CoreCompileInputs.cache
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang\obj\Debug\QuanLyBanHang.exe
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang\obj\Debug\QuanLyBanHang.pdb
