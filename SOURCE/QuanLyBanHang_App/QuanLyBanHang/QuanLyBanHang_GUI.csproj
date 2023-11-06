@@ -49,17 +49,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DangNhap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DangNhap.Designer.cs">
-      <DependentUpon>DangNhap.cs</DependentUpon>
-    </Compile>
     <Compile Include="DardBoard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DardBoard.Designer.cs">
       <DependentUpon>DardBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDangNhap.Designer.cs">
+      <DependentUpon>FrmDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQuanLyManHinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmQuanLyManHinh.Designer.cs">
+      <DependentUpon>FrmQuanLyManHinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQuanLyNguoiDung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmQuanLyNguoiDung.Designer.cs">
+      <DependentUpon>FrmQuanLyNguoiDung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQuanLyNhomNguoiDung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmQuanLyNhomNguoiDung.Designer.cs">
+      <DependentUpon>FrmQuanLyNhomNguoiDung.cs</DependentUpon>
     </Compile>
     <Compile Include="QuanLyBanHang_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -68,11 +86,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DangNhap.resx">
-      <DependentUpon>DangNhap.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DardBoard.resx">
       <DependentUpon>DardBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDangNhap.resx">
+      <DependentUpon>FrmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQuanLyManHinh.resx">
+      <DependentUpon>FrmQuanLyManHinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQuanLyNguoiDung.resx">
+      <DependentUpon>FrmQuanLyNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQuanLyNhomNguoiDung.resx">
+      <DependentUpon>FrmQuanLyNhomNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -156,8 +183,8 @@
     <None Include="Resources\icons8-people-64.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\QuanLyBanHang_BLL\QuanLyBanHang_BLL.csproj">
-      <Project>{5ce3e608-7508-45f2-ba58-87fd7fa8eb0c}</Project>
+    <ProjectReference Include="QuanLyBanHang_BLL\QuanLyBanHang_BLL.csproj">
+      <Project>{17e58793-92dc-439b-9233-cc7d7735d6ae}</Project>
       <Name>QuanLyBanHang_BLL</Name>
     </ProjectReference>
   </ItemGroup>

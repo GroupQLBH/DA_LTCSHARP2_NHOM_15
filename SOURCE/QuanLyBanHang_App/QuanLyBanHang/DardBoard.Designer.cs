@@ -28,15 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.components = new System.ComponentModel.Container();
             this.PnlMenu = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.PnlInfo = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.lblTenNguoiDung = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnDangXuat = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.lblNgayHienTai = new System.Windows.Forms.Label();
-            this.PnlMain = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.MenuQLBanHang = new Guna.UI2.WinForms.Guna2GradientButton();
             this.MenuQLKho = new Guna.UI2.WinForms.Guna2GradientButton();
             this.MenuQLNhaCC = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -48,10 +41,18 @@
             this.MenuQLNhomND = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.MenuQLNguoiDung = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.PnlInfo = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.lblTenNguoiDung = new System.Windows.Forms.Label();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnDangXuat = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.lblNgayHienTai = new System.Windows.Forms.Label();
+            this.PnlMain = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.PnlMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.PnlInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlMenu
@@ -74,90 +75,6 @@
             this.PnlMenu.Size = new System.Drawing.Size(411, 809);
             this.PnlMenu.TabIndex = 0;
             // 
-            // PnlInfo
-            // 
-            this.PnlInfo.Controls.Add(this.lblTenNguoiDung);
-            this.PnlInfo.Controls.Add(this.guna2CirclePictureBox1);
-            this.PnlInfo.Controls.Add(this.label1);
-            this.PnlInfo.Controls.Add(this.btnDangXuat);
-            this.PnlInfo.Controls.Add(this.lblNgayHienTai);
-            this.PnlInfo.Location = new System.Drawing.Point(419, 2);
-            this.PnlInfo.Name = "PnlInfo";
-            this.PnlInfo.ShadowDecoration.Parent = this.PnlInfo;
-            this.PnlInfo.Size = new System.Drawing.Size(1259, 76);
-            this.PnlInfo.TabIndex = 1;
-            // 
-            // lblTenNguoiDung
-            // 
-            this.lblTenNguoiDung.AutoSize = true;
-            this.lblTenNguoiDung.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenNguoiDung.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblTenNguoiDung.Location = new System.Drawing.Point(740, 7);
-            this.lblTenNguoiDung.Name = "lblTenNguoiDung";
-            this.lblTenNguoiDung.Size = new System.Drawing.Size(98, 20);
-            this.lblTenNguoiDung.TabIndex = 4;
-            this.lblTenNguoiDung.Tag = "MHDardBoard";
-            this.lblTenNguoiDung.Text = "Người dùng:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label1.Location = new System.Drawing.Point(3, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(383, 38);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "HỆ THỐNG BÁN HÀNG VKK";
-            // 
-            // btnDangXuat
-            // 
-            this.btnDangXuat.BackColor = System.Drawing.Color.Transparent;
-            this.btnDangXuat.BorderRadius = 10;
-            this.btnDangXuat.CheckedState.Parent = this.btnDangXuat;
-            this.btnDangXuat.CustomImages.Parent = this.btnDangXuat;
-            this.btnDangXuat.FillColor = System.Drawing.Color.DodgerBlue;
-            this.btnDangXuat.FillColor2 = System.Drawing.Color.Cyan;
-            this.btnDangXuat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDangXuat.ForeColor = System.Drawing.Color.White;
-            this.btnDangXuat.HoverState.Parent = this.btnDangXuat;
-            this.btnDangXuat.Location = new System.Drawing.Point(1123, 19);
-            this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.ShadowDecoration.Parent = this.btnDangXuat;
-            this.btnDangXuat.Size = new System.Drawing.Size(128, 39);
-            this.btnDangXuat.TabIndex = 1;
-            this.btnDangXuat.Text = "Đăng Xuất";
-            // 
-            // lblNgayHienTai
-            // 
-            this.lblNgayHienTai.AutoSize = true;
-            this.lblNgayHienTai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgayHienTai.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblNgayHienTai.Location = new System.Drawing.Point(740, 36);
-            this.lblNgayHienTai.Name = "lblNgayHienTai";
-            this.lblNgayHienTai.Size = new System.Drawing.Size(111, 20);
-            this.lblNgayHienTai.TabIndex = 0;
-            this.lblNgayHienTai.Text = "Ngày hiện tại:";
-            // 
-            // PnlMain
-            // 
-            this.PnlMain.Location = new System.Drawing.Point(419, 84);
-            this.PnlMain.Name = "PnlMain";
-            this.PnlMain.ShadowDecoration.Parent = this.PnlMain;
-            this.PnlMain.Size = new System.Drawing.Size(1259, 727);
-            this.PnlMain.TabIndex = 2;
-            // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.Image = global::QuanLyBanHang.Properties.Resources.icons8_user_default_50;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(685, 10);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(49, 53);
-            this.guna2CirclePictureBox1.TabIndex = 3;
-            this.guna2CirclePictureBox1.TabStop = false;
-            // 
             // MenuQLBanHang
             // 
             this.MenuQLBanHang.BackColor = System.Drawing.Color.Transparent;
@@ -178,7 +95,7 @@
             this.MenuQLBanHang.ShadowDecoration.Parent = this.MenuQLBanHang;
             this.MenuQLBanHang.Size = new System.Drawing.Size(405, 45);
             this.MenuQLBanHang.TabIndex = 16;
-            this.MenuQLBanHang.Tag = "MHQLBanHang";
+            this.MenuQLBanHang.Tag = "MH11";
             this.MenuQLBanHang.Text = "Quản Lý Bán Hàng";
             this.MenuQLBanHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.MenuQLBanHang.UseTransparentBackground = true;
@@ -203,7 +120,7 @@
             this.MenuQLKho.ShadowDecoration.Parent = this.MenuQLKho;
             this.MenuQLKho.Size = new System.Drawing.Size(405, 45);
             this.MenuQLKho.TabIndex = 15;
-            this.MenuQLKho.Tag = "MHQLKho";
+            this.MenuQLKho.Tag = "MH10";
             this.MenuQLKho.Text = "Quản Lý Kho";
             this.MenuQLKho.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.MenuQLKho.UseTransparentBackground = true;
@@ -228,7 +145,7 @@
             this.MenuQLNhaCC.ShadowDecoration.Parent = this.MenuQLNhaCC;
             this.MenuQLNhaCC.Size = new System.Drawing.Size(405, 45);
             this.MenuQLNhaCC.TabIndex = 14;
-            this.MenuQLNhaCC.Tag = "MHQLNhaCC";
+            this.MenuQLNhaCC.Tag = "MH09";
             this.MenuQLNhaCC.Text = "Quản Lý Nhà Cung Cấp";
             this.MenuQLNhaCC.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.MenuQLNhaCC.UseTransparentBackground = true;
@@ -253,7 +170,7 @@
             this.MenuQLSanPham.ShadowDecoration.Parent = this.MenuQLSanPham;
             this.MenuQLSanPham.Size = new System.Drawing.Size(405, 45);
             this.MenuQLSanPham.TabIndex = 13;
-            this.MenuQLSanPham.Tag = "MHQLSanPham";
+            this.MenuQLSanPham.Tag = "MH08";
             this.MenuQLSanPham.Text = "Quản Lý Sản Phẩm";
             this.MenuQLSanPham.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.MenuQLSanPham.UseTransparentBackground = true;
@@ -278,7 +195,7 @@
             this.MenuQLThuongHieu.ShadowDecoration.Parent = this.MenuQLThuongHieu;
             this.MenuQLThuongHieu.Size = new System.Drawing.Size(405, 45);
             this.MenuQLThuongHieu.TabIndex = 12;
-            this.MenuQLThuongHieu.Tag = "MHQLThuongHieu";
+            this.MenuQLThuongHieu.Tag = "MH07";
             this.MenuQLThuongHieu.Text = "Quản Lý Thương Hiệu";
             this.MenuQLThuongHieu.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.MenuQLThuongHieu.UseTransparentBackground = true;
@@ -303,7 +220,7 @@
             this.MenuQLLoaiSP.ShadowDecoration.Parent = this.MenuQLLoaiSP;
             this.MenuQLLoaiSP.Size = new System.Drawing.Size(405, 45);
             this.MenuQLLoaiSP.TabIndex = 11;
-            this.MenuQLLoaiSP.Tag = "MHQLLoaiSanPham";
+            this.MenuQLLoaiSP.Tag = "MH06";
             this.MenuQLLoaiSP.Text = "Quản Lý Loại Sản Phẩm";
             this.MenuQLLoaiSP.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.MenuQLLoaiSP.UseTransparentBackground = true;
@@ -328,7 +245,7 @@
             this.MenuQLKhachHang.ShadowDecoration.Parent = this.MenuQLKhachHang;
             this.MenuQLKhachHang.Size = new System.Drawing.Size(405, 45);
             this.MenuQLKhachHang.TabIndex = 10;
-            this.MenuQLKhachHang.Tag = "MHQLKhachHang";
+            this.MenuQLKhachHang.Tag = "MH05";
             this.MenuQLKhachHang.Text = "Quản Lý Khách Hàng";
             this.MenuQLKhachHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.MenuQLKhachHang.UseTransparentBackground = true;
@@ -353,10 +270,11 @@
             this.MenuQLManHinh.ShadowDecoration.Parent = this.MenuQLManHinh;
             this.MenuQLManHinh.Size = new System.Drawing.Size(405, 45);
             this.MenuQLManHinh.TabIndex = 9;
-            this.MenuQLManHinh.Tag = "MHChucNang";
-            this.MenuQLManHinh.Text = "Quản Lý Màn Hình Chức Năng";
+            this.MenuQLManHinh.Tag = "MH04";
+            this.MenuQLManHinh.Text = "Quản Lý Hiển Thị Và Phân Quyền";
             this.MenuQLManHinh.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.MenuQLManHinh.UseTransparentBackground = true;
+            this.MenuQLManHinh.Click += new System.EventHandler(this.MenuQLManHinh_Click);
             // 
             // MenuQLNhomND
             // 
@@ -378,10 +296,11 @@
             this.MenuQLNhomND.ShadowDecoration.Parent = this.MenuQLNhomND;
             this.MenuQLNhomND.Size = new System.Drawing.Size(405, 45);
             this.MenuQLNhomND.TabIndex = 8;
-            this.MenuQLNhomND.Tag = "MHQLNhomNguoiDung";
+            this.MenuQLNhomND.Tag = "MH03";
             this.MenuQLNhomND.Text = "Quản Lý Nhóm Người Dùng";
             this.MenuQLNhomND.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.MenuQLNhomND.UseTransparentBackground = true;
+            this.MenuQLNhomND.Click += new System.EventHandler(this.MenuQLNhomND_Click);
             // 
             // guna2PictureBox1
             // 
@@ -416,11 +335,100 @@
             this.MenuQLNguoiDung.ShadowDecoration.Parent = this.MenuQLNguoiDung;
             this.MenuQLNguoiDung.Size = new System.Drawing.Size(405, 45);
             this.MenuQLNguoiDung.TabIndex = 6;
-            this.MenuQLNguoiDung.Tag = "MHQLNhanVien";
+            this.MenuQLNguoiDung.Tag = "MH02";
             this.MenuQLNguoiDung.Text = "Quản Lý Nhân Viên";
             this.MenuQLNguoiDung.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.MenuQLNguoiDung.UseTransparentBackground = true;
             this.MenuQLNguoiDung.Click += new System.EventHandler(this.MenuQLNguoiDung_Click);
+            // 
+            // PnlInfo
+            // 
+            this.PnlInfo.Controls.Add(this.lblTenNguoiDung);
+            this.PnlInfo.Controls.Add(this.guna2CirclePictureBox1);
+            this.PnlInfo.Controls.Add(this.label1);
+            this.PnlInfo.Controls.Add(this.btnDangXuat);
+            this.PnlInfo.Controls.Add(this.lblNgayHienTai);
+            this.PnlInfo.Location = new System.Drawing.Point(419, 2);
+            this.PnlInfo.Name = "PnlInfo";
+            this.PnlInfo.ShadowDecoration.Parent = this.PnlInfo;
+            this.PnlInfo.Size = new System.Drawing.Size(1259, 76);
+            this.PnlInfo.TabIndex = 1;
+            // 
+            // lblTenNguoiDung
+            // 
+            this.lblTenNguoiDung.AutoSize = true;
+            this.lblTenNguoiDung.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenNguoiDung.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblTenNguoiDung.Location = new System.Drawing.Point(740, 7);
+            this.lblTenNguoiDung.Name = "lblTenNguoiDung";
+            this.lblTenNguoiDung.Size = new System.Drawing.Size(98, 20);
+            this.lblTenNguoiDung.TabIndex = 4;
+            this.lblTenNguoiDung.Tag = "MHDardBoard";
+            this.lblTenNguoiDung.Text = "Người dùng:";
+            // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.Image = global::QuanLyBanHang.Properties.Resources.icons8_user_default_50;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(685, 10);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(49, 53);
+            this.guna2CirclePictureBox1.TabIndex = 3;
+            this.guna2CirclePictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label1.Location = new System.Drawing.Point(3, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(383, 38);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "HỆ THỐNG BÁN HÀNG VKK";
+            // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.BackColor = System.Drawing.Color.Transparent;
+            this.btnDangXuat.BorderRadius = 10;
+            this.btnDangXuat.CheckedState.Parent = this.btnDangXuat;
+            this.btnDangXuat.CustomImages.Parent = this.btnDangXuat;
+            this.btnDangXuat.FillColor = System.Drawing.Color.DodgerBlue;
+            this.btnDangXuat.FillColor2 = System.Drawing.Color.Cyan;
+            this.btnDangXuat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangXuat.ForeColor = System.Drawing.Color.White;
+            this.btnDangXuat.HoverState.Parent = this.btnDangXuat;
+            this.btnDangXuat.Location = new System.Drawing.Point(1123, 19);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.ShadowDecoration.Parent = this.btnDangXuat;
+            this.btnDangXuat.Size = new System.Drawing.Size(128, 39);
+            this.btnDangXuat.TabIndex = 1;
+            this.btnDangXuat.Text = "Đăng Xuất";
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
+            // 
+            // lblNgayHienTai
+            // 
+            this.lblNgayHienTai.AutoSize = true;
+            this.lblNgayHienTai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNgayHienTai.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblNgayHienTai.Location = new System.Drawing.Point(740, 36);
+            this.lblNgayHienTai.Name = "lblNgayHienTai";
+            this.lblNgayHienTai.Size = new System.Drawing.Size(111, 20);
+            this.lblNgayHienTai.TabIndex = 0;
+            this.lblNgayHienTai.Text = "Ngày hiện tại:";
+            // 
+            // PnlMain
+            // 
+            this.PnlMain.Location = new System.Drawing.Point(419, 84);
+            this.PnlMain.Name = "PnlMain";
+            this.PnlMain.ShadowDecoration.Parent = this.PnlMain;
+            this.PnlMain.Size = new System.Drawing.Size(1259, 727);
+            this.PnlMain.TabIndex = 2;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // DardBoard
             // 
@@ -436,17 +444,15 @@
             this.Load += new System.EventHandler(this.DardBoard_Load);
             this.PnlMenu.ResumeLayout(false);
             this.PnlMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.PnlInfo.ResumeLayout(false);
             this.PnlInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Guna.UI2.WinForms.Guna2GradientPanel PnlMenu;
         private Guna.UI2.WinForms.Guna2GradientPanel PnlInfo;
         private Guna.UI2.WinForms.Guna2GradientPanel PnlMain;
@@ -466,5 +472,6 @@
         private Guna.UI2.WinForms.Guna2GradientButton MenuQLLoaiSP;
         private Guna.UI2.WinForms.Guna2GradientButton MenuQLKhachHang;
         private Guna.UI2.WinForms.Guna2GradientButton MenuQLManHinh;
+        private System.Windows.Forms.Timer timer1;
     }
 }

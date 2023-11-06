@@ -331,3 +331,6 @@ VALUES
 ('PH01', N'Sản phẩm tốt, giao hàng nhanh.', 10, 'KH01'),
 ('PH02', N'Cửa hàng phục vụ chu đáo, tư vấn nhiệt tình', 9, 'KH02'),
 ('PH03', N'Giá cả phải chăng, sẽ ủng hộ tiếp.', 8, 'KH03');
+INSERT INTO QL_NguoiDung (TenDangNhap, MatKhau, HoatDong)
+VALUES
+('NV06', '123', 1)
