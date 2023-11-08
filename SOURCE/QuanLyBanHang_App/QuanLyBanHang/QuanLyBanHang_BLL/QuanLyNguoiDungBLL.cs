@@ -35,10 +35,36 @@ namespace QuanLyBanHang_BLL
                 _DataContext.SubmitChanges();
             }
         }
+        public List<DonHang> TimDonHangCuaNhanVien(string Ma)
+        {
+            return _DataContext.DonHangs.Where(dh => dh.MaNhanVien == Ma).ToList();
+        }
+        public List<PhieuNhapHang> TimPhieuNhapCuaNhanVien(string Ma)
+        {
+            return _DataContext.PhieuNhapHangs.Where(dh => dh.MaNhanVien == Ma).ToList();
+        }
+
+        public List<Kho> TimKhoCuaNhanVien(string Ma)
+        {
+            return _DataContext.Khos.Where(dh => dh.MaNhanVien == Ma).ToList();
+        }
+
         public void XoaNhanVien(string Ma)
         {
             if (TimNhanVien(Ma) != null)
             {
+                foreach (var kho in TimKhoCuaNhanVien(Ma))
+                {
+                    kho.MaNhanVien = null;
+                }
+                foreach (var phieu in TimPhieuNhapCuaNhanVien(Ma))
+                {
+                    phieu.MaNhanVien = null;
+                }
+                foreach (var don in TimDonHangCuaNhanVien(Ma))
+                {
+                    don.MaNhanVien = null;
+                }
                 _DataContext.NhanViens.DeleteOnSubmit(TimNhanVien(Ma));
                 _DataContext.SubmitChanges();
             } 
@@ -64,10 +90,19 @@ namespace QuanLyBanHang_BLL
             _DataContext.SubmitChanges();
         }
 
-        public QL_NguoiDung TimTaiKhoan(string Ma)
+        public List<QL_NguoiDung> TimTaiKhoan(string Ma)
         {
-            return _DataContext.QL_NguoiDungs.Where(tk=>tk.TenDangNhap == Ma).FirstOrDefault();
+            return _DataContext.QL_NguoiDungs.Where(tk=>tk.TenDangNhap == Ma).ToList();
         }
         
+        public List<NhanVien> TimNhanVienTheoThuocTinh(string keyword)
+        {
+            return _DataContext.NhanViens.Where(
+                nv => nv.MaNhanVien.ToString().Contains(keyword) || 
+                nv.HoTen.ToString().Contains(keyword) || 
+                nv.Luong.ToString().Contains(keyword) || 
+                nv.ChucVu.ToString().Contains(keyword) || 
+                nv.SoDienThoai.ToString().Contains(keyword) || nv.CCCD.ToString().Contains(keyword)).ToList(); 
+        }
     }
 }

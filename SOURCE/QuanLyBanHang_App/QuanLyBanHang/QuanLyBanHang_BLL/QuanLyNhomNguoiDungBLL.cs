@@ -58,6 +58,11 @@ namespace QuanLyBanHang_BLL
             return _DataContext.QL_NguoiDungNhomNguoiDungs.Where(ql => ql.MaNhomNguoiDung == Ma && ql.TenDangNhap==Ten).FirstOrDefault();
         }
 
+        public QL_NguoiDungNhomNguoiDung TimNguoiDungDaCoNhom(string Ten)
+        {
+            return _DataContext.QL_NguoiDungNhomNguoiDungs.Where(ql => ql.TenDangNhap == Ten).FirstOrDefault();
+        }
+
         public void themNguoiDungVaoNhom(QL_NguoiDungNhomNguoiDung QL)
         {
             _DataContext.QL_NguoiDungNhomNguoiDungs.InsertOnSubmit(QL);

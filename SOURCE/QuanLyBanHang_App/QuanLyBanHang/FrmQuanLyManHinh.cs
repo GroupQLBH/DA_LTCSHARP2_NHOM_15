@@ -198,7 +198,7 @@ namespace QuanLyBanHang
             string MNND = qL_PhanQuyenDataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn6"].Value.ToString();
             string MMH = qL_PhanQuyenDataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn7"].Value.ToString();
 
-            Console.WriteLine("sdfsfsdfs" + qL_PhanQuyenDataGridView.CurrentRow.Cells["dataGridViewCheckBoxColumn1"].Value.ToString());
+           
             MessageBox.Show("Bạn đã thay đổi quyền của" + MNND, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
 
@@ -238,6 +238,7 @@ namespace QuanLyBanHang
                     QL.MaNhomNguoiDung = MNND;
                     QL.CoQuyen = coQuyen;
                     quanLyPhanQuyenBLL_CT.themNhomNDVaoQuyen(QL);
+                    ReloadDataGridViewPhanQuyen();
                     MessageBox.Show("Thêm thành công !", "Thông báo");
                 }
                 else
@@ -259,6 +260,7 @@ namespace QuanLyBanHang
                 string MNND = qL_PhanQuyenDataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn6"].Value.ToString();
                 string MMH = qL_PhanQuyenDataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn7"].Value.ToString();
                 quanLyPhanQuyenBLL_CT.xoaNhomNDKhoiQuyen(MNND, MMH);
+                ReloadDataGridViewPhanQuyen();
                 MessageBox.Show("Xóa thành công !", "Thông báo");
             }
             else

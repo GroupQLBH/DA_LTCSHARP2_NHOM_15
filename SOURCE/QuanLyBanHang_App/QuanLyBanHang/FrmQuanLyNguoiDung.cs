@@ -32,6 +32,8 @@ namespace QuanLyBanHang
             this.nhanVienTableAdapter.Fill(this.quanLyBanHang_DataSet.NhanVien);
             enableControl(false);
             btnThem.Enabled = true;
+            txtTimKiem.Enabled = true;
+   
         }
         public void enableControl(bool ena)
         {
@@ -52,6 +54,15 @@ namespace QuanLyBanHang
             cCCDTextBox.Text = nhanVienDataGridView.CurrentRow.Cells[3].Value.ToString();
             soDienThoaiTextBox.Text = nhanVienDataGridView.CurrentRow.Cells[4].Value.ToString();
             luongTextBox.Text = nhanVienDataGridView.CurrentRow.Cells[5].Value.ToString();
+            qL_NguoiDungDataGridView.DataSource = null;
+            qL_NguoiDungDataGridView.Rows.Clear();
+
+            // Cập nhật dữ liệu từ cơ sở dữ liệu bằng TableAdapter
+            this.qL_NguoiDungTableAdapter.Fill(this.quanLyBanHang_DataSet.QL_NguoiDung);
+
+            // Gán nguồn dữ liệu mới cho DataGridView
+            qL_NguoiDungDataGridView.DataSource = QuanLyNguoiDungBLL_CT.TimTaiKhoan(maNhanVienTextBox.Text);
+
         }
 
 
@@ -101,12 +112,13 @@ namespace QuanLyBanHang
             btnLuu.Enabled = true;
         }
 
-        public static bool IsValidCCCD(string cccd)
+       
+        public bool IsValidCCCD(string cccd)
         {
             string pattern = @"^\d{12}$";
             return Regex.IsMatch(cccd, pattern);
         }
-        public static bool IsValidPhoneNumber(string phoneNumber)
+        public bool IsValidPhoneNumber(string phoneNumber)
         {
             string pattern = @"^0\d{9,}$";
             return Regex.IsMatch(phoneNumber, pattern);
@@ -155,7 +167,7 @@ namespace QuanLyBanHang
                 btnSua.Enabled = true;
                 btnXoa.Enabled = true;
                 btnThem.Enabled = true;
-                
+                txtTimKiem.Enabled = true;
             }
             catch {
                 MessageBox.Show("Lưu Không thành công ! ", "Lỗi");
@@ -183,6 +195,27 @@ namespace QuanLyBanHang
             }
         }
 
+        private void ReloadDataGridViewWhenSearch()
+        {
+            try
+            {
+                // Xóa dữ liệu hiện tại của DataGridView
+                nhanVienDataGridView.DataSource = null;
+                nhanVienDataGridView.Rows.Clear();
+
+                // Cập nhật dữ liệu từ cơ sở dữ liệu bằng TableAdapter
+                this.nhanVienTableAdapter.Fill(this.quanLyBanHang_DataSet.NhanVien);
+
+                // Gán nguồn dữ liệu mới cho DataGridView
+                nhanVienDataGridView.DataSource = QuanLyNguoiDungBLL_CT.TimNhanVienTheoThuocTinh(txtTimKiem.Text.Trim());
+            }
+            catch 
+            {
+                // Xử lý lỗi nếu có
+                MessageBox.Show("Không tìm thấy nhân viên này","Thông báo");
+                ReloadDataGridView();
+            }
+        }
         private void btnTaiKhoan_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn thêm tài khoản với mật khẩu mặt định là 123 cho nhân viên "+ maNhanVienTextBox.Text + " không ?", "Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button2)==DialogResult.Yes)
@@ -204,5 +237,12 @@ namespace QuanLyBanHang
                 e.Handled = true; // Chặn ký tự không phải số và không phải ký tự điều khiển
             }
         }
+
+        private void txtTimKiem_IconRightClick(object sender, EventArgs e)
+        {
+            ReloadDataGridViewWhenSearch();
+        }
+
+
     }
 }

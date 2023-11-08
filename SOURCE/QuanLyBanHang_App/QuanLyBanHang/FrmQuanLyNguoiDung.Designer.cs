@@ -35,6 +35,7 @@
             System.Windows.Forms.Label cCCDLabel;
             System.Windows.Forms.Label soDienThoaiLabel;
             System.Windows.Forms.Label luongLabel;
+            System.Windows.Forms.Label label1;
             this.quanLyBanHang_DataSet = new QuanLyBanHang.QuanLyBanHang_DataSet();
             this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nhanVienTableAdapter = new QuanLyBanHang.QuanLyBanHang_DataSetTableAdapters.NhanVienTableAdapter();
@@ -46,11 +47,19 @@
             this.soDienThoaiTextBox = new System.Windows.Forms.TextBox();
             this.luongTextBox = new System.Windows.Forms.TextBox();
             this.nhanVienDataGridView = new System.Windows.Forms.DataGridView();
+            this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnTaiKhoan = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnLuu = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnSua = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnXoa = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnThem = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.btnTaiKhoan = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.taiKhoanBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.taiKhoanTableAdapter = new QuanLyBanHang.QuanLyBanHang_DataSetTableAdapters.TaiKhoanTableAdapter();
+            this.qL_NguoiDungBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qL_NguoiDungTableAdapter = new QuanLyBanHang.QuanLyBanHang_DataSetTableAdapters.QL_NguoiDungTableAdapter();
+            this.qL_NguoiDungDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,9 +72,13 @@
             cCCDLabel = new System.Windows.Forms.Label();
             soDienThoaiLabel = new System.Windows.Forms.Label();
             luongLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyBanHang_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taiKhoanBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qL_NguoiDungBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qL_NguoiDungDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // maNhanVienLabel
@@ -246,6 +259,54 @@
             this.nhanVienDataGridView.TabIndex = 13;
             this.nhanVienDataGridView.SelectionChanged += new System.EventHandler(this.nhanVienDataGridView_SelectionChanged);
             // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.BorderRadius = 20;
+            this.txtTimKiem.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTimKiem.DefaultText = "";
+            this.txtTimKiem.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTimKiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTimKiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTimKiem.DisabledState.Parent = this.txtTimKiem;
+            this.txtTimKiem.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTimKiem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTimKiem.FocusedState.Parent = this.txtTimKiem;
+            this.txtTimKiem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTimKiem.HoverState.Parent = this.txtTimKiem;
+            this.txtTimKiem.IconRight = global::QuanLyBanHang.Properties.Resources.icons8_search_50;
+            this.txtTimKiem.IconRightSize = new System.Drawing.Size(40, 40);
+            this.txtTimKiem.Location = new System.Drawing.Point(28, 487);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.PasswordChar = '\0';
+            this.txtTimKiem.PlaceholderText = "Nhập thông tin cần tìm kiếm";
+            this.txtTimKiem.SelectedText = "";
+            this.txtTimKiem.ShadowDecoration.Parent = this.txtTimKiem;
+            this.txtTimKiem.Size = new System.Drawing.Size(806, 36);
+            this.txtTimKiem.TabIndex = 19;
+            this.txtTimKiem.IconRightClick += new System.EventHandler(this.txtTimKiem_IconRightClick);
+            // 
+            // btnTaiKhoan
+            // 
+            this.btnTaiKhoan.CheckedState.Parent = this.btnTaiKhoan;
+            this.btnTaiKhoan.CustomImages.Parent = this.btnTaiKhoan;
+            this.btnTaiKhoan.FillColor = System.Drawing.Color.Transparent;
+            this.btnTaiKhoan.FillColor2 = System.Drawing.Color.Transparent;
+            this.btnTaiKhoan.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaiKhoan.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.btnTaiKhoan.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.btnTaiKhoan.HoverState.FillColor2 = System.Drawing.Color.Aqua;
+            this.btnTaiKhoan.HoverState.Parent = this.btnTaiKhoan;
+            this.btnTaiKhoan.Image = global::QuanLyBanHang.Properties.Resources.icons8_user_default_50;
+            this.btnTaiKhoan.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnTaiKhoan.Location = new System.Drawing.Point(596, 0);
+            this.btnTaiKhoan.Name = "btnTaiKhoan";
+            this.btnTaiKhoan.ShadowDecoration.Parent = this.btnTaiKhoan;
+            this.btnTaiKhoan.Size = new System.Drawing.Size(236, 64);
+            this.btnTaiKhoan.TabIndex = 18;
+            this.btnTaiKhoan.Text = "Thêm Tài Khoản";
+            this.btnTaiKhoan.Click += new System.EventHandler(this.btnTaiKhoan_Click);
+            // 
             // btnLuu
             // 
             this.btnLuu.CheckedState.Parent = this.btnLuu;
@@ -330,26 +391,68 @@
             this.btnThem.Text = "Thêm";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // btnTaiKhoan
+            // taiKhoanBindingSource
             // 
-            this.btnTaiKhoan.CheckedState.Parent = this.btnTaiKhoan;
-            this.btnTaiKhoan.CustomImages.Parent = this.btnTaiKhoan;
-            this.btnTaiKhoan.FillColor = System.Drawing.Color.Transparent;
-            this.btnTaiKhoan.FillColor2 = System.Drawing.Color.Transparent;
-            this.btnTaiKhoan.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTaiKhoan.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.btnTaiKhoan.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.btnTaiKhoan.HoverState.FillColor2 = System.Drawing.Color.Aqua;
-            this.btnTaiKhoan.HoverState.Parent = this.btnTaiKhoan;
-            this.btnTaiKhoan.Image = global::QuanLyBanHang.Properties.Resources.icons8_user_default_50;
-            this.btnTaiKhoan.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnTaiKhoan.Location = new System.Drawing.Point(596, 0);
-            this.btnTaiKhoan.Name = "btnTaiKhoan";
-            this.btnTaiKhoan.ShadowDecoration.Parent = this.btnTaiKhoan;
-            this.btnTaiKhoan.Size = new System.Drawing.Size(236, 64);
-            this.btnTaiKhoan.TabIndex = 18;
-            this.btnTaiKhoan.Text = "Thêm Tài Khoản";
-            this.btnTaiKhoan.Click += new System.EventHandler(this.btnTaiKhoan_Click);
+            this.taiKhoanBindingSource.DataMember = "TaiKhoan";
+            this.taiKhoanBindingSource.DataSource = this.quanLyBanHang_DataSet;
+            // 
+            // taiKhoanTableAdapter
+            // 
+            this.taiKhoanTableAdapter.ClearBeforeFill = true;
+            // 
+            // qL_NguoiDungBindingSource
+            // 
+            this.qL_NguoiDungBindingSource.DataMember = "QL_NguoiDung";
+            this.qL_NguoiDungBindingSource.DataSource = this.quanLyBanHang_DataSet;
+            // 
+            // qL_NguoiDungTableAdapter
+            // 
+            this.qL_NguoiDungTableAdapter.ClearBeforeFill = true;
+            // 
+            // qL_NguoiDungDataGridView
+            // 
+            this.qL_NguoiDungDataGridView.AutoGenerateColumns = false;
+            this.qL_NguoiDungDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.qL_NguoiDungDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewCheckBoxColumn1});
+            this.qL_NguoiDungDataGridView.DataSource = this.qL_NguoiDungBindingSource;
+            this.qL_NguoiDungDataGridView.Location = new System.Drawing.Point(28, 406);
+            this.qL_NguoiDungDataGridView.Name = "qL_NguoiDungDataGridView";
+            this.qL_NguoiDungDataGridView.ReadOnly = true;
+            this.qL_NguoiDungDataGridView.RowHeadersWidth = 51;
+            this.qL_NguoiDungDataGridView.RowTemplate.Height = 24;
+            this.qL_NguoiDungDataGridView.Size = new System.Drawing.Size(308, 76);
+            this.qL_NguoiDungDataGridView.TabIndex = 19;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "TenDangNhap";
+            this.dataGridViewTextBoxColumn7.HeaderText = "TenDangNhap";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 125;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "HoatDong";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "HoatDong";
+            this.dataGridViewCheckBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.Width = 125;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.ForeColor = System.Drawing.Color.DodgerBlue;
+            label1.Location = new System.Drawing.Point(23, 385);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(195, 18);
+            label1.TabIndex = 20;
+            label1.Text = "Tài khoản của nhân viên:";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -409,6 +512,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(label1);
+            this.Controls.Add(this.qL_NguoiDungDataGridView);
+            this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.btnTaiKhoan);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnSua);
@@ -428,11 +534,14 @@
             this.Controls.Add(luongLabel);
             this.Controls.Add(this.luongTextBox);
             this.Name = "FrmQuanLyNguoiDung";
-            this.Size = new System.Drawing.Size(850, 396);
+            this.Size = new System.Drawing.Size(854, 657);
             this.Load += new System.EventHandler(this.FrmQuanLyNguoiDung_Load);
             ((System.ComponentModel.ISupportInitialize)(this.quanLyBanHang_DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taiKhoanBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qL_NguoiDungBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qL_NguoiDungDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -456,6 +565,14 @@
         private Guna.UI2.WinForms.Guna2GradientButton btnSua;
         private Guna.UI2.WinForms.Guna2GradientButton btnLuu;
         private Guna.UI2.WinForms.Guna2GradientButton btnTaiKhoan;
+        private Guna.UI2.WinForms.Guna2TextBox txtTimKiem;
+        private System.Windows.Forms.BindingSource taiKhoanBindingSource;
+        private QuanLyBanHang_DataSetTableAdapters.TaiKhoanTableAdapter taiKhoanTableAdapter;
+        private System.Windows.Forms.BindingSource qL_NguoiDungBindingSource;
+        private QuanLyBanHang_DataSetTableAdapters.QL_NguoiDungTableAdapter qL_NguoiDungTableAdapter;
+        private System.Windows.Forms.DataGridView qL_NguoiDungDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;

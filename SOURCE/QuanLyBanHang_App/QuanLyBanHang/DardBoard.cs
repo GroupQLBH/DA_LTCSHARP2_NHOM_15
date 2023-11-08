@@ -25,7 +25,7 @@ namespace QuanLyBanHang
         private void DardBoard_Load(object sender, EventArgs e)
         {
             timer1.Start();
-            lblTenNguoiDung.Text = "Người dùng:" + TenNhanVien;
+            lblTenNguoiDung.Text = "Người dùng :" + DardBoardBLL_CT.TenNhanVien(TenNhanVien);
             FindMenuPhanQuyen();
 
         }
@@ -84,6 +84,34 @@ namespace QuanLyBanHang
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void MenuQLKhachHang_Click(object sender, EventArgs e)
+        {
+            FrmQuanLyKhachHang frmQuanLyKhachHang = new FrmQuanLyKhachHang(TenNhanVien);
+            PnlMain.Controls.Clear();
+            PnlMain.Controls.Add(frmQuanLyKhachHang);
+        }
+
+        private void MenuQLThuongHieu_Click(object sender, EventArgs e)
+        {
+            FrmQuanLyThuongHieu frmQuanLyThuongHieu = new FrmQuanLyThuongHieu();
+            PnlMain.Controls.Clear();
+            PnlMain.Controls.Add(frmQuanLyThuongHieu);
+        }
+
+        private void MenuQLLoaiSP_Click(object sender, EventArgs e)
+        {
+            FrmQuanLyLoaiSanPham frmQuanLyLoaiSanPham = new FrmQuanLyLoaiSanPham();
+            PnlMain.Controls.Clear();
+            PnlMain.Controls.Add(frmQuanLyLoaiSanPham);
+        }
+
+        private void MenuQLSanPham_Click(object sender, EventArgs e)
+        {
+            FrmQuanLySanPham frmQuanLySanPham = new FrmQuanLySanPham();
+            PnlMain.Controls.Clear();
+            PnlMain.Controls.Add(frmQuanLySanPham);
         }
     }
 }

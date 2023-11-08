@@ -61,6 +61,18 @@
     <Compile Include="FrmDangNhap.Designer.cs">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmQuanLyKhachHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmQuanLyKhachHang.Designer.cs">
+      <DependentUpon>FrmQuanLyKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQuanLyLoaiSanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmQuanLyLoaiSanPham.Designer.cs">
+      <DependentUpon>FrmQuanLyLoaiSanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmQuanLyManHinh.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -79,6 +91,18 @@
     <Compile Include="FrmQuanLyNhomNguoiDung.Designer.cs">
       <DependentUpon>FrmQuanLyNhomNguoiDung.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmQuanLySanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmQuanLySanPham.Designer.cs">
+      <DependentUpon>FrmQuanLySanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQuanLyThuongHieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmQuanLyThuongHieu.Designer.cs">
+      <DependentUpon>FrmQuanLyThuongHieu.cs</DependentUpon>
+    </Compile>
     <Compile Include="QuanLyBanHang_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -92,6 +116,12 @@
     <EmbeddedResource Include="FrmDangNhap.resx">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmQuanLyKhachHang.resx">
+      <DependentUpon>FrmQuanLyKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQuanLyLoaiSanPham.resx">
+      <DependentUpon>FrmQuanLyLoaiSanPham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmQuanLyManHinh.resx">
       <DependentUpon>FrmQuanLyManHinh.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,6 +130,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmQuanLyNhomNguoiDung.resx">
       <DependentUpon>FrmQuanLyNhomNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQuanLySanPham.resx">
+      <DependentUpon>FrmQuanLySanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQuanLyThuongHieu.resx">
+      <DependentUpon>FrmQuanLyThuongHieu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -189,6 +189,11 @@ namespace QuanLyBanHang
                 if (MessageBox.Show("Bạn có muốn thêm người dùng " + qL_NguoiDungDataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn4"].Value.ToString() 
                 +" vào nhóm người dùng " + maNhomTextBox.Text, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
+                    if(QuanLyNhomNguoiDungBLL_CT.TimNguoiDungDaCoNhom(qL_NguoiDungDataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn4"].Value.ToString())!=null)
+                    {
+                        MessageBox.Show("Người dùng này đã có nhóm vui lòng chọn người dùng khác ! ", "Thông báo");
+                        return;
+                    }    
                     QL_NguoiDungNhomNguoiDung QL = new QL_NguoiDungNhomNguoiDung();
                     QL.MaNhomNguoiDung = maNhomTextBox.Text;
                     QL.TenDangNhap = qL_NguoiDungDataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn4"].Value.ToString();

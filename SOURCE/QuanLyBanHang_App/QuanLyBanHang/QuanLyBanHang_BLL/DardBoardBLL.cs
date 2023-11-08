@@ -19,5 +19,10 @@ namespace QuanLyBanHang_BLL
 
             return _DataContext.QL_PhanQuyens.Where(q => q.MaNhomNguoiDung == TimNhomCuaNguoiDung(Ten).MaNhomNguoiDung).ToList();
         }
+
+        public string TenNhanVien(string Ma)
+        {
+            return _DataContext.NhanViens.Where(nv=>nv.MaNhanVien == Ma).FirstOrDefault().HoTen;
+        }
     }
 }
