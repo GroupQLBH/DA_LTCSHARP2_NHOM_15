@@ -71,6 +71,7 @@ namespace QuanLyBanHang
             nhanVienDataGridView.Rows[nhanVienDataGridView.Rows.Count - 1].Cells[0].Selected = true;
             fla = 1;
             enableControl(true);
+            txtTimKiem.Enabled = false;
             btnSua.Enabled=btnXoa.Enabled=btnTaiKhoan.Enabled=false;
             maNhanVienTextBox.Enabled = false;
             foreach(Control item in this.Controls)
@@ -82,6 +83,7 @@ namespace QuanLyBanHang
             }
             nhanVienDataGridView.Enabled = false;
             btnLuu.Enabled = true;
+            btnThem.Enabled = false;
             maNhanVienTextBox.Text = QuanLyNguoiDungBLL_CT.MaNhanVienTuDong();
             
         }
@@ -90,6 +92,11 @@ namespace QuanLyBanHang
         {
             try
             {
+                if (qL_NguoiDungDataGridView.CurrentRow.Cells["dataGridViewCheckBoxColumn1"].Value.ToString().Contains("True"))
+                {
+                    MessageBox.Show("Người dùng đang hoạt động không thể xóa !","Thông báo");
+                    return;
+                }    
                 if(MessageBox.Show("Bạn có muốn xóa nhân viên " + maNhanVienTextBox.Text, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)==DialogResult.Yes)
                 {
                     QuanLyNguoiDungBLL_CT.XoaNhanVien(maNhanVienTextBox.Text);
@@ -110,6 +117,8 @@ namespace QuanLyBanHang
             maNhanVienTextBox.Enabled = false;
             nhanVienDataGridView.Enabled = false;
             btnLuu.Enabled = true;
+            btnSua.Enabled = false;
+            txtTimKiem.Enabled = false;
         }
 
        
@@ -127,7 +136,7 @@ namespace QuanLyBanHang
         {
             try
             {
-                if(hoTenTextBox.Text.Trim()==null || luongTextBox.Text.Trim() == null || cCCDTextBox.Text.Trim() == null || soDienThoaiTextBox.Text.Trim()==null || chucVuTextBox.Text.Trim()==null)
+                if(hoTenTextBox.Text.Trim()=="" || luongTextBox.Text.Trim() == "" || cCCDTextBox.Text.Trim() == "" || soDienThoaiTextBox.Text.Trim()=="" || chucVuTextBox.Text.Trim()=="")
                 {
                     MessageBox.Show("Bạn chưa điền đủ thông tin !", "Thông báo");
                     return;

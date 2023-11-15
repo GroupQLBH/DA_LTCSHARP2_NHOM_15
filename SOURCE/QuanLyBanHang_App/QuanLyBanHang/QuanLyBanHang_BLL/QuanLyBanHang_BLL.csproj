@@ -59,9 +59,13 @@
       <DependentUpon>QuanLyBanHang_LinQ.dbml</DependentUpon>
     </Compile>
     <Compile Include="QuanLyKhachHangBLL.cs" />
+    <Compile Include="QuanLyKhoBLL.cs" />
+    <Compile Include="QuanLyKhuyenMaiBLL.cs" />
     <Compile Include="QuanLyNguoiDungBLL.cs" />
+    <Compile Include="QuanLyNhaCungCapBLL.cs" />
     <Compile Include="QuanLyNhomNguoiDungBLL.cs" />
     <Compile Include="QuanLyPhanQuyenBLL.cs" />
+    <Compile Include="QuanLySanPhamBLL.cs" />
     <Compile Include="QuanLyThuongHieuBLL.cs" />
   </ItemGroup>
   <ItemGroup>

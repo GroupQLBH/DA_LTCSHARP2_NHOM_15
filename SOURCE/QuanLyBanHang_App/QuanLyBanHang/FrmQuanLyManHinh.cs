@@ -198,8 +198,6 @@ namespace QuanLyBanHang
             string MNND = qL_PhanQuyenDataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn6"].Value.ToString();
             string MMH = qL_PhanQuyenDataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn7"].Value.ToString();
 
-           
-            MessageBox.Show("Bạn đã thay đổi quyền của" + MNND, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
 
             if (qL_PhanQuyenDataGridView.CurrentRow.Cells["dataGridViewCheckBoxColumn1"].Value.ToString() == "True")

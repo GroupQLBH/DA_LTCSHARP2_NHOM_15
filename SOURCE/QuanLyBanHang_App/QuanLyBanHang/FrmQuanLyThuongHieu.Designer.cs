@@ -232,8 +232,11 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
             this.thuongHieuDataGridView.DataSource = this.thuongHieuBindingSource;
+            this.thuongHieuDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.thuongHieuDataGridView.EnableHeadersVisualStyles = false;
             this.thuongHieuDataGridView.Location = new System.Drawing.Point(137, 188);
             this.thuongHieuDataGridView.Name = "thuongHieuDataGridView";
+            this.thuongHieuDataGridView.ReadOnly = true;
             this.thuongHieuDataGridView.RowHeadersWidth = 51;
             this.thuongHieuDataGridView.RowTemplate.Height = 24;
             this.thuongHieuDataGridView.Size = new System.Drawing.Size(340, 220);
@@ -259,17 +262,24 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "MaThuongHieu";
+            this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "Mã Thương Hiệu";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn1.Width = 125;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "TenThuongHieu";
+            this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "Tên Thương Hiệu";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn2.Width = 125;
             // 
             // FrmQuanLyThuongHieu

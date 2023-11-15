@@ -143,6 +143,8 @@ namespace QuanLyBanHang
                 }
             }
             khachHangDataGridView.Enabled = false;
+            btnThem.Enabled = false;
+            txtTimKiem.Enabled = false;
             btnLuu.Enabled = true;
             maKhachHangTextBox.Text = QuanLyKhachHangBLL_CT.MaKhachHangTuDong();
         }
@@ -171,13 +173,15 @@ namespace QuanLyBanHang
             maKhachHangTextBox.Enabled = false;
             khachHangDataGridView.Enabled = false;
             btnLuu.Enabled = true;
+            btnSua.Enabled = false;
+            txtTimKiem.Enabled = false;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
             try
             {
-                if (tenKhachHangTextBox.Text.Trim() == null ||  soDienThoaiTextBox.Text.Trim() == null)
+                if (tenKhachHangTextBox.Text.Trim() == "" ||  soDienThoaiTextBox.Text.Trim() == "")
                 {
                     MessageBox.Show("Bạn chưa điền đủ thông tin (Họ Tên hoặc Số Điện Thoại) !", "Thông báo");
                     return;

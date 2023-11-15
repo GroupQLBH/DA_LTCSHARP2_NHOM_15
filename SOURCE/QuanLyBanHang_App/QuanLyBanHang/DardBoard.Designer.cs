@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.PnlMenu = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.MenuTKBaoCao = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.MenuQLNhapHang = new Guna.UI2.WinForms.Guna2GradientButton();
             this.MenuQLKhuyeMai = new Guna.UI2.WinForms.Guna2GradientButton();
             this.MenuQLBanHang = new Guna.UI2.WinForms.Guna2GradientButton();
             this.MenuQLKho = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -50,8 +52,6 @@
             this.lblNgayHienTai = new System.Windows.Forms.Label();
             this.PnlMain = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.MenuQLNhapHang = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.MenuTKBaoCao = new Guna.UI2.WinForms.Guna2GradientButton();
             this.PnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.PnlInfo.SuspendLayout();
@@ -80,6 +80,56 @@
             this.PnlMenu.ShadowDecoration.Parent = this.PnlMenu;
             this.PnlMenu.Size = new System.Drawing.Size(411, 809);
             this.PnlMenu.TabIndex = 0;
+            // 
+            // MenuTKBaoCao
+            // 
+            this.MenuTKBaoCao.BackColor = System.Drawing.Color.Transparent;
+            this.MenuTKBaoCao.CheckedState.Parent = this.MenuTKBaoCao;
+            this.MenuTKBaoCao.CustomImages.Parent = this.MenuTKBaoCao;
+            this.MenuTKBaoCao.FillColor = System.Drawing.Color.Transparent;
+            this.MenuTKBaoCao.FillColor2 = System.Drawing.Color.Transparent;
+            this.MenuTKBaoCao.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MenuTKBaoCao.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.MenuTKBaoCao.HoverState.FillColor = System.Drawing.Color.GhostWhite;
+            this.MenuTKBaoCao.HoverState.FillColor2 = System.Drawing.Color.MintCream;
+            this.MenuTKBaoCao.HoverState.Parent = this.MenuTKBaoCao;
+            this.MenuTKBaoCao.Image = global::QuanLyBanHang.Properties.Resources.icons8_bar_chart_50;
+            this.MenuTKBaoCao.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.MenuTKBaoCao.ImageSize = new System.Drawing.Size(50, 50);
+            this.MenuTKBaoCao.Location = new System.Drawing.Point(0, 694);
+            this.MenuTKBaoCao.Name = "MenuTKBaoCao";
+            this.MenuTKBaoCao.ShadowDecoration.Parent = this.MenuTKBaoCao;
+            this.MenuTKBaoCao.Size = new System.Drawing.Size(405, 45);
+            this.MenuTKBaoCao.TabIndex = 19;
+            this.MenuTKBaoCao.Tag = "MH14";
+            this.MenuTKBaoCao.Text = "Thống Kê Báo Cáo";
+            this.MenuTKBaoCao.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.MenuTKBaoCao.UseTransparentBackground = true;
+            // 
+            // MenuQLNhapHang
+            // 
+            this.MenuQLNhapHang.BackColor = System.Drawing.Color.Transparent;
+            this.MenuQLNhapHang.CheckedState.Parent = this.MenuQLNhapHang;
+            this.MenuQLNhapHang.CustomImages.Parent = this.MenuQLNhapHang;
+            this.MenuQLNhapHang.FillColor = System.Drawing.Color.Transparent;
+            this.MenuQLNhapHang.FillColor2 = System.Drawing.Color.Transparent;
+            this.MenuQLNhapHang.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MenuQLNhapHang.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.MenuQLNhapHang.HoverState.FillColor = System.Drawing.Color.GhostWhite;
+            this.MenuQLNhapHang.HoverState.FillColor2 = System.Drawing.Color.MintCream;
+            this.MenuQLNhapHang.HoverState.Parent = this.MenuQLNhapHang;
+            this.MenuQLNhapHang.Image = global::QuanLyBanHang.Properties.Resources.icons8_home_50;
+            this.MenuQLNhapHang.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.MenuQLNhapHang.ImageSize = new System.Drawing.Size(50, 50);
+            this.MenuQLNhapHang.Location = new System.Drawing.Point(0, 643);
+            this.MenuQLNhapHang.Name = "MenuQLNhapHang";
+            this.MenuQLNhapHang.ShadowDecoration.Parent = this.MenuQLNhapHang;
+            this.MenuQLNhapHang.Size = new System.Drawing.Size(405, 45);
+            this.MenuQLNhapHang.TabIndex = 18;
+            this.MenuQLNhapHang.Tag = "MH13";
+            this.MenuQLNhapHang.Text = "Quản Lý Nhập Hàng";
+            this.MenuQLNhapHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.MenuQLNhapHang.UseTransparentBackground = true;
             // 
             // MenuQLKhuyeMai
             // 
@@ -180,6 +230,7 @@
             this.MenuQLNhaCC.Text = "Quản Lý Nhà Cung Cấp";
             this.MenuQLNhaCC.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.MenuQLNhaCC.UseTransparentBackground = true;
+            this.MenuQLNhaCC.Click += new System.EventHandler(this.MenuQLNhaCC_Click);
             // 
             // MenuQLSanPham
             // 
@@ -464,56 +515,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // MenuQLNhapHang
-            // 
-            this.MenuQLNhapHang.BackColor = System.Drawing.Color.Transparent;
-            this.MenuQLNhapHang.CheckedState.Parent = this.MenuQLNhapHang;
-            this.MenuQLNhapHang.CustomImages.Parent = this.MenuQLNhapHang;
-            this.MenuQLNhapHang.FillColor = System.Drawing.Color.Transparent;
-            this.MenuQLNhapHang.FillColor2 = System.Drawing.Color.Transparent;
-            this.MenuQLNhapHang.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MenuQLNhapHang.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.MenuQLNhapHang.HoverState.FillColor = System.Drawing.Color.GhostWhite;
-            this.MenuQLNhapHang.HoverState.FillColor2 = System.Drawing.Color.MintCream;
-            this.MenuQLNhapHang.HoverState.Parent = this.MenuQLNhapHang;
-            this.MenuQLNhapHang.Image = global::QuanLyBanHang.Properties.Resources.icons8_home_50;
-            this.MenuQLNhapHang.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.MenuQLNhapHang.ImageSize = new System.Drawing.Size(50, 50);
-            this.MenuQLNhapHang.Location = new System.Drawing.Point(0, 643);
-            this.MenuQLNhapHang.Name = "MenuQLNhapHang";
-            this.MenuQLNhapHang.ShadowDecoration.Parent = this.MenuQLNhapHang;
-            this.MenuQLNhapHang.Size = new System.Drawing.Size(405, 45);
-            this.MenuQLNhapHang.TabIndex = 18;
-            this.MenuQLNhapHang.Tag = "MH13";
-            this.MenuQLNhapHang.Text = "Quản Lý Nhập Hàng";
-            this.MenuQLNhapHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.MenuQLNhapHang.UseTransparentBackground = true;
-            // 
-            // MenuTKBaoCao
-            // 
-            this.MenuTKBaoCao.BackColor = System.Drawing.Color.Transparent;
-            this.MenuTKBaoCao.CheckedState.Parent = this.MenuTKBaoCao;
-            this.MenuTKBaoCao.CustomImages.Parent = this.MenuTKBaoCao;
-            this.MenuTKBaoCao.FillColor = System.Drawing.Color.Transparent;
-            this.MenuTKBaoCao.FillColor2 = System.Drawing.Color.Transparent;
-            this.MenuTKBaoCao.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MenuTKBaoCao.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.MenuTKBaoCao.HoverState.FillColor = System.Drawing.Color.GhostWhite;
-            this.MenuTKBaoCao.HoverState.FillColor2 = System.Drawing.Color.MintCream;
-            this.MenuTKBaoCao.HoverState.Parent = this.MenuTKBaoCao;
-            this.MenuTKBaoCao.Image = global::QuanLyBanHang.Properties.Resources.icons8_bar_chart_50;
-            this.MenuTKBaoCao.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.MenuTKBaoCao.ImageSize = new System.Drawing.Size(50, 50);
-            this.MenuTKBaoCao.Location = new System.Drawing.Point(0, 694);
-            this.MenuTKBaoCao.Name = "MenuTKBaoCao";
-            this.MenuTKBaoCao.ShadowDecoration.Parent = this.MenuTKBaoCao;
-            this.MenuTKBaoCao.Size = new System.Drawing.Size(405, 45);
-            this.MenuTKBaoCao.TabIndex = 19;
-            this.MenuTKBaoCao.Tag = "MH14";
-            this.MenuTKBaoCao.Text = "Thống Kê Báo Cáo";
-            this.MenuTKBaoCao.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.MenuTKBaoCao.UseTransparentBackground = true;
             // 
             // DardBoard
             // 

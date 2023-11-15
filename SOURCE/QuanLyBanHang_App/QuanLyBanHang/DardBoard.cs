@@ -113,5 +113,12 @@ namespace QuanLyBanHang
             PnlMain.Controls.Clear();
             PnlMain.Controls.Add(frmQuanLySanPham);
         }
+
+        private void MenuQLNhaCC_Click(object sender, EventArgs e)
+        {
+            FrmQuanLyNhaCungCap frmQuanLyNhaCungCap = new FrmQuanLyNhaCungCap();
+            PnlMain.Controls.Clear();
+            PnlMain.Controls.Add(frmQuanLyNhaCungCap);
+        }
     }
 }
