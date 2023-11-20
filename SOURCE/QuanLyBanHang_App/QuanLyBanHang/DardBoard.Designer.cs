@@ -130,7 +130,6 @@
             this.MenuQLNhapHang.Text = "Quản Lý Nhập Hàng";
             this.MenuQLNhapHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.MenuQLNhapHang.UseTransparentBackground = true;
-            this.MenuQLNhapHang.Click += new System.EventHandler(this.MenuQLNhapHang_Click);
             // 
             // MenuQLKhuyeMai
             // 
@@ -156,7 +155,6 @@
             this.MenuQLKhuyeMai.Text = "Quản Lý Thông Tin Khuyến Mãi";
             this.MenuQLKhuyeMai.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.MenuQLKhuyeMai.UseTransparentBackground = true;
-            this.MenuQLKhuyeMai.Click += new System.EventHandler(this.MenuQLKhuyeMai_Click);
             // 
             // MenuQLBanHang
             // 
@@ -207,7 +205,6 @@
             this.MenuQLKho.Text = "Quản Lý Kho";
             this.MenuQLKho.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.MenuQLKho.UseTransparentBackground = true;
-            this.MenuQLKho.Click += new System.EventHandler(this.MenuQLKho_Click);
             // 
             // MenuQLNhaCC
             // 
@@ -530,7 +527,6 @@
             this.Name = "DardBoard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DardBoard";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.DardBoard_Load);
             this.PnlMenu.ResumeLayout(false);
             this.PnlMenu.PerformLayout();

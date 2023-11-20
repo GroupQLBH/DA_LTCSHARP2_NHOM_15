@@ -64,8 +64,7 @@ namespace QuanLyBanHang_BLL
         {
             return _DataContext.KhuyenMais.Where(
                 nv => nv.MaKhuyenMai.ToString().Contains(keyword) ||
-                nv.TenChuongTrinh.ToString().Contains(keyword)||
-                nv.GiamGia.ToString().Contains(keyword)
+                nv.TenChuongTrinh.ToString().Contains(keyword)
                 ).ToList();
         }
     }

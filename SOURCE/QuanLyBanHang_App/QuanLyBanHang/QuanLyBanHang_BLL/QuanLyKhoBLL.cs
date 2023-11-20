@@ -31,8 +31,7 @@ namespace QuanLyBanHang_BLL
             if (TimKho(NV.MaKho) != null)
             {
                 TimKho(NV.MaKho).TenKho = NV.TenKho;
-                TimKho(NV.MaKho).DiaChiKho = NV.DiaChiKho;
-                TimKho(NV.MaKho).MaNhanVien = NV.MaNhanVien;
+
                 _DataContext.SubmitChanges();
             }
         }
@@ -53,7 +52,7 @@ namespace QuanLyBanHang_BLL
                 string Ma = lastKho.MaKho.Substring(2);
                 int numberPart = Convert.ToInt16(Ma);
                 numberPart++;
-                return "K" + numberPart.ToString("D2");
+                return "KH" + numberPart.ToString("D2");
             }
             return null;
         }
@@ -63,9 +62,7 @@ namespace QuanLyBanHang_BLL
         {
             return _DataContext.Khos.Where(
                 nv => nv.MaKho.ToString().Contains(keyword) ||
-                nv.TenKho.ToString().Contains(keyword)||
-                nv.MaKho.ToString().Contains(keyword)||
-                nv.DiaChiKho.ToString().Contains(keyword)
+                nv.TenKho.ToString().Contains(keyword)
                 ).ToList();
         }
     }
