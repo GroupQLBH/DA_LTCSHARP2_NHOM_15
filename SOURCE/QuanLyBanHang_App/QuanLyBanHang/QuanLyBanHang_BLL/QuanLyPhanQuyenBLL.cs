@@ -20,7 +20,10 @@ namespace QuanLyBanHang_BLL
         {
             return _DataContext.DM_ManHinhs.Where(nv => nv.MaManHinh == Ma).FirstOrDefault();
         }
-
+        public DM_ManHinh TimTenManHinh(string Ten)
+        {
+            return _DataContext.DM_ManHinhs.Where(nv => nv.TenManHinh == Ten).FirstOrDefault();
+        }
         public void SuaDM_ManHinh(DM_ManHinh NV)
         {
             if (TimDM_ManHinh(NV.MaManHinh) != null)

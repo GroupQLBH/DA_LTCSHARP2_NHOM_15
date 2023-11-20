@@ -159,7 +159,12 @@ namespace QuanLyBanHang
                 QL.TenManHinh = tenManHinhTextBox.Text.Trim();
                 if (fla == 1)
                 {
+                    if (quanLyPhanQuyenBLL_CT.TimTenManHinh(tenManHinhTextBox.Text.Trim()) != null)
+                    {
+                        MessageBox.Show("Nhà cung cấp này đã tồn tại", "Thông báo");
+                        return;
 
+                    }
                     quanLyPhanQuyenBLL_CT.ThemDM_ManHinh(QL);
                     MessageBox.Show("Thêm thành công !", "Thông báo");
                 }

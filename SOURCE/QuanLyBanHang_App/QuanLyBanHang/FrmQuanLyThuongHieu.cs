@@ -145,12 +145,7 @@ namespace QuanLyBanHang
                     return;
                 }
 
-                if(QuanLyThuongHieuBLL_CT.TimTenThuongHieu(tenThuongHieuTextBox.Text.Trim())!=null)
-                {
-                    MessageBox.Show("Thương hiệu này đã tồn tại", "Thông báo");
-                    return;
-                        
-                }    
+                
 
                 ThuongHieu TH = new ThuongHieu();
                 TH.MaThuongHieu =maThuongHieuTextBox.Text.Trim();
@@ -158,7 +153,12 @@ namespace QuanLyBanHang
                
                 if (fla == 1)
                 {
+                    if (QuanLyThuongHieuBLL_CT.TimTenThuongHieu(tenThuongHieuTextBox.Text.Trim()) != null)
+                    {
+                        MessageBox.Show("Thương hiệu này đã tồn tại", "Thông báo");
+                        return;
 
+                    }
                     QuanLyThuongHieuBLL_CT.ThemThuongHieu(TH);
                     MessageBox.Show("Thêm thành công !", "Thông báo");
                 }
