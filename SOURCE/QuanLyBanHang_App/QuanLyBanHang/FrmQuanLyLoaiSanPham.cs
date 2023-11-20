@@ -72,7 +72,7 @@ namespace QuanLyBanHang
             catch
             {
                 // Xử lý lỗi nếu có
-                MessageBox.Show("Không tìm thấy khách hàng này", "Thông báo");
+                MessageBox.Show("Không tìm thấy loại sản phẩm này", "Thông báo");
                 ReloadDataGridView();
             }
         }
@@ -88,6 +88,7 @@ namespace QuanLyBanHang
         {
             loaiSanPhamDataGridView.Rows[loaiSanPhamDataGridView.Rows.Count - 1].Cells[0].Selected = true;
             fla = 1;
+        
             enableControl(true);
             btnSua.Enabled = btnXoa.Enabled = false;
             maLoaiTextBox.Enabled = false;
@@ -100,6 +101,8 @@ namespace QuanLyBanHang
             }
             loaiSanPhamDataGridView.Enabled = false;
             btnLuu.Enabled = true;
+            txtTimKiem.Enabled = false;
+            btnThem.Enabled = false;
             maLoaiTextBox.Text = LoaiSanPhamBLL_CT.MaLoaiSanPhamTuDong();
         }
 
@@ -127,13 +130,15 @@ namespace QuanLyBanHang
             maLoaiTextBox.Enabled = false;
             loaiSanPhamDataGridView.Enabled = false;
             btnLuu.Enabled = true;
+            btnSua.Enabled = false;
+            txtTimKiem.Enabled = false;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
             try
             {
-                if (tenLoaiTextBox.Text.Trim() == null)
+                if (tenLoaiTextBox.Text.Trim() == "")
                 {
                     MessageBox.Show("Bạn chưa điền đủ thông tin !", "Thông báo");
                     return;

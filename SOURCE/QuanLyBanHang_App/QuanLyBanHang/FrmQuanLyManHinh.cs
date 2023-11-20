@@ -159,7 +159,12 @@ namespace QuanLyBanHang
                 QL.TenManHinh = tenManHinhTextBox.Text.Trim();
                 if (fla == 1)
                 {
+                    if (quanLyPhanQuyenBLL_CT.TimTenManHinh(tenManHinhTextBox.Text.Trim()) != null)
+                    {
+                        MessageBox.Show("Nhà cung cấp này đã tồn tại", "Thông báo");
+                        return;
 
+                    }
                     quanLyPhanQuyenBLL_CT.ThemDM_ManHinh(QL);
                     MessageBox.Show("Thêm thành công !", "Thông báo");
                 }
@@ -198,8 +203,6 @@ namespace QuanLyBanHang
             string MNND = qL_PhanQuyenDataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn6"].Value.ToString();
             string MMH = qL_PhanQuyenDataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn7"].Value.ToString();
 
-           
-            MessageBox.Show("Bạn đã thay đổi quyền của" + MNND, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
 
             if (qL_PhanQuyenDataGridView.CurrentRow.Cells["dataGridViewCheckBoxColumn1"].Value.ToString() == "True")

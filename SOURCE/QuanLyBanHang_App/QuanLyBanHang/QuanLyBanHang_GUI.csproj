@@ -61,11 +61,29 @@
     <Compile Include="FrmDangNhap.Designer.cs">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmNhapHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmNhapHang.Designer.cs">
+      <DependentUpon>FrmNhapHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmQuanLyKhachHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="FrmQuanLyKhachHang.Designer.cs">
       <DependentUpon>FrmQuanLyKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQuanLyKho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmQuanLyKho.Designer.cs">
+      <DependentUpon>FrmQuanLyKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQuanLyKhuyenMai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmQuanLyKhuyenMai.Designer.cs">
+      <DependentUpon>FrmQuanLyKhuyenMai.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmQuanLyLoaiSanPham.cs">
       <SubType>UserControl</SubType>
@@ -85,6 +103,12 @@
     <Compile Include="FrmQuanLyNguoiDung.Designer.cs">
       <DependentUpon>FrmQuanLyNguoiDung.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmQuanLyNhaCungCap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmQuanLyNhaCungCap.Designer.cs">
+      <DependentUpon>FrmQuanLyNhaCungCap.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmQuanLyNhomNguoiDung.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -103,6 +127,9 @@
     <Compile Include="FrmQuanLyThuongHieu.Designer.cs">
       <DependentUpon>FrmQuanLyThuongHieu.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuanLyBanHang_DataSet.cs">
+      <DependentUpon>QuanLyBanHang_DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="QuanLyBanHang_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -110,14 +137,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Templates\WordExport.cs" />
     <EmbeddedResource Include="DardBoard.resx">
       <DependentUpon>DardBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDangNhap.resx">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmNhapHang.resx">
+      <DependentUpon>FrmNhapHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmQuanLyKhachHang.resx">
       <DependentUpon>FrmQuanLyKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQuanLyKho.resx">
+      <DependentUpon>FrmQuanLyKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQuanLyKhuyenMai.resx">
+      <DependentUpon>FrmQuanLyKhuyenMai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmQuanLyLoaiSanPham.resx">
       <DependentUpon>FrmQuanLyLoaiSanPham.cs</DependentUpon>
@@ -127,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmQuanLyNguoiDung.resx">
       <DependentUpon>FrmQuanLyNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQuanLyNhaCungCap.resx">
+      <DependentUpon>FrmQuanLyNhaCungCap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmQuanLyNhomNguoiDung.resx">
       <DependentUpon>FrmQuanLyNhomNguoiDung.cs</DependentUpon>
@@ -156,6 +196,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Templates\PhieuNhapHang.docx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -175,7 +216,9 @@
     <None Include="Resources\icons8-bookmark-50.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
+    <PackageReference Include="Aspose.Words">
+      <Version>23.11.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icons\icons8-bar-chart-50.png" />
@@ -216,6 +259,9 @@
     <Content Include="Icons\icons8-user-default-50.png" />
     <Content Include="Icons\icons8-user-location-50.png" />
     <Content Include="Icons\icons8-user-male-50.png" />
+    <Content Include="Images\Iphone.jpg" />
+    <Content Include="Images\LapTop.jpg" />
+    <Content Include="Images\SamSung.jpg" />
     <None Include="Resources\icons8-people-64.png" />
   </ItemGroup>
   <ItemGroup>

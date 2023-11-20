@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyBanHang_BLL;
@@ -34,7 +35,7 @@ namespace QuanLyBanHang
                 item.Enabled = ena;
             }
             thuongHieuDataGridView.Enabled = true;
-
+            
         }
         private void ReloadDataGridView()
         {
@@ -73,13 +74,13 @@ namespace QuanLyBanHang
             catch
             {
                 // Xử lý lỗi nếu có
-                MessageBox.Show("Không tìm thấy khách hàng này", "Thông báo");
+                MessageBox.Show("Không tìm thấy thương hiệu này", "Thông báo");
                 ReloadDataGridView();
             }
         }
         private void thuongHieuDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = true;
+            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = true; 
             maThuongHieuTextBox.Text = thuongHieuDataGridView.CurrentRow.Cells[0].Value.ToString();
             tenThuongHieuTextBox.Text = thuongHieuDataGridView.CurrentRow.Cells[1].Value.ToString();
         }
@@ -88,6 +89,7 @@ namespace QuanLyBanHang
         {
             thuongHieuDataGridView.Rows[thuongHieuDataGridView.Rows.Count - 1].Cells[0].Selected = true;
             fla = 1;
+            
             enableControl(true);
             btnSua.Enabled = btnXoa.Enabled = false;
             maThuongHieuTextBox.Enabled = false;
@@ -100,6 +102,8 @@ namespace QuanLyBanHang
             }
             thuongHieuDataGridView.Enabled = false;
             btnLuu.Enabled = true;
+            btnThem.Enabled = false;
+            txtTimKiem.Enabled = false;
             maThuongHieuTextBox.Text = QuanLyThuongHieuBLL_CT.MaThuongHieuTuDong();
         }
 
@@ -127,24 +131,21 @@ namespace QuanLyBanHang
             maThuongHieuTextBox.Enabled = false;
             thuongHieuDataGridView.Enabled = false;
             btnLuu.Enabled = true;
+            btnSua.Enabled = false;
+            txtTimKiem.Enabled = false;
         }
-
+        
         private void btnLuu_Click(object sender, EventArgs e)
         {
             try
             {
-                if (tenThuongHieuTextBox.Text.Trim() == null)
+                if (tenThuongHieuTextBox.Text.Trim() == "")
                 {
                     MessageBox.Show("Bạn chưa điền đủ thông tin !", "Thông báo");
                     return;
                 }
 
-                if(QuanLyThuongHieuBLL_CT.TimTenThuongHieu(tenThuongHieuTextBox.Text.Trim())!=null)
-                {
-                    MessageBox.Show("Thương hiệu này đã tồn tại", "Thông báo");
-                    return;
-                        
-                }    
+                
 
                 ThuongHieu TH = new ThuongHieu();
                 TH.MaThuongHieu =maThuongHieuTextBox.Text.Trim();
@@ -152,7 +153,12 @@ namespace QuanLyBanHang
                
                 if (fla == 1)
                 {
+                    if (QuanLyThuongHieuBLL_CT.TimTenThuongHieu(tenThuongHieuTextBox.Text.Trim()) != null)
+                    {
+                        MessageBox.Show("Thương hiệu này đã tồn tại", "Thông báo");
+                        return;
 
+                    }
                     QuanLyThuongHieuBLL_CT.ThemThuongHieu(TH);
                     MessageBox.Show("Thêm thành công !", "Thông báo");
                 }
@@ -178,5 +184,7 @@ namespace QuanLyBanHang
         {
             ReloadDataGridViewWhenSearch();
         }
+
+    
     }
 }
