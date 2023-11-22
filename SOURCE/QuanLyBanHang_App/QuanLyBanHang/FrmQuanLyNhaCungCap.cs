@@ -68,7 +68,7 @@ namespace QuanLyBanHang
             catch
             {
                 // Xử lý lỗi nếu có
-                MessageBox.Show("Không tìm thấy thương hiệu này", "Thông báo");
+                MessageBox.Show("Không tìm thấy nhà cung cấp này", "Thông báo");
                 ReloadDataGridView();
             }
         }
@@ -109,7 +109,7 @@ namespace QuanLyBanHang
         {
             try
             {
-                if (MessageBox.Show("Bạn có muốn xóa thương hiệu " + maNhaCungCapTextBox.Text, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                if (MessageBox.Show("Bạn có muốn xóa nhà cung cấp " + maNhaCungCapTextBox.Text, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     QuanLyNhaCungCapBLL_CT.XoaNhaCungCap(maNhaCungCapTextBox.Text);
                     ReloadDataGridView();
@@ -157,12 +157,7 @@ namespace QuanLyBanHang
                     return;
                 }
 
-                if (QuanLyNhaCungCapBLL_CT.TimTenNhaCungCap(tenNhaCungCapTextBox.Text.Trim()) != null)
-                {
-                    MessageBox.Show("Nhà cung cấp này đã tồn tại", "Thông báo");
-                    return;
-
-                }
+              
                 if (!IsValidPhoneNumber(soDienThoaiTextBox.Text.Trim()))
                 {
                     MessageBox.Show("Vui lòng nhập một số điện thoại hợp lệ !", "Thông báo");
@@ -183,7 +178,12 @@ namespace QuanLyBanHang
 
                 if (fla == 1)
                 {
+                    if (QuanLyNhaCungCapBLL_CT.TimTenNhaCungCap(tenNhaCungCapTextBox.Text.Trim()) != null)
+                    {
+                        MessageBox.Show("Nhà cung cấp này đã tồn tại", "Thông báo");
+                        return;
 
+                    }
                     QuanLyNhaCungCapBLL_CT.ThemNhaCungCap(TH);
                     MessageBox.Show("Thêm thành công !", "Thông báo");
                 }

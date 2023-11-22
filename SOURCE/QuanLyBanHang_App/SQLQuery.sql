@@ -126,7 +126,11 @@ CREATE TABLE ChiTietDonHang (
     FOREIGN KEY (MaDonHang) REFERENCES DonHang(MaDonHang),
     FOREIGN KEY (MaSanPham) REFERENCES SanPham(MaSanPham)
 );
+ALTER TABLE ChiTietDonHang
+add MaKho NVARCHAR(5)
 
+ALTER TABLE ChiTietDonHang
+Add CONSTRAINT FK_ChiTietDonHang_SanPham FOREIGN KEY(MaKho) REFERENCES Kho(MaKho)
 -- Bảng QL_PhanQuyen
 CREATE TABLE QL_PhanQuyen (
     MaNhomNguoiDung NVARCHAR(5),
@@ -166,6 +170,12 @@ CREATE TABLE ChiTietPhieuNhap (
     FOREIGN KEY (MaPhieuNhap) REFERENCES PhieuNhapHang(MaPhieuNhap),
     FOREIGN KEY (MaSanPham) REFERENCES SanPham(MaSanPham)
 );
+
+ALTER TABLE ChiTietPhieuNhap
+add MaKho NVARCHAR(5)
+
+ALTER TABLE ChiTietPhieuNhap
+Add CONSTRAINT FK_ChiTietPhieuNhap_SanPham FOREIGN KEY(MaKho) REFERENCES Kho(MaKho)
 
 -- Bảng kho
 CREATE TABLE Kho (

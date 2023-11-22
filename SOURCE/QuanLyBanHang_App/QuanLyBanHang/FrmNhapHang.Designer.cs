@@ -455,7 +455,7 @@
             this.btnHuy.HoverState.Parent = this.btnHuy;
             this.btnHuy.Image = global::QuanLyBanHang.Properties.Resources.icons8_close_50;
             this.btnHuy.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnHuy.Location = new System.Drawing.Point(385, 3);
+            this.btnHuy.Location = new System.Drawing.Point(385, 2);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.ShadowDecoration.Parent = this.btnHuy;
             this.btnHuy.Size = new System.Drawing.Size(143, 64);

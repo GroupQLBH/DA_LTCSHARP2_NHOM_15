@@ -120,5 +120,40 @@ namespace QuanLyBanHang
             PnlMain.Controls.Clear();
             PnlMain.Controls.Add(frmQuanLyNhaCungCap);
         }
+
+        private void MenuQLKhuyeMai_Click(object sender, EventArgs e)
+        {
+            FrmQuanLyKhuyenMai frmQuanLyKhuyenMai = new FrmQuanLyKhuyenMai();
+            PnlMain.Controls.Clear();
+            PnlMain.Controls.Add(frmQuanLyKhuyenMai);
+        }
+
+        private void MenuQLKho_Click(object sender, EventArgs e)
+        {
+            FrmQuanLyKho frmQuanLyKho = new FrmQuanLyKho();
+            PnlMain.Controls.Clear();
+            PnlMain.Controls.Add(frmQuanLyKho);
+        }
+
+        private void MenuQLNhapHang_Click(object sender, EventArgs e)
+        {
+            FrmNhapHang frmNhapHang = new FrmNhapHang(TenNhanVien);
+            PnlMain.Controls.Clear();
+            PnlMain.Controls.Add(frmNhapHang);
+        }
+
+        private void MenuQLBanHang_Click(object sender, EventArgs e)
+        {
+            FrmBanHang frmBanHang = new FrmBanHang(TenNhanVien);
+            PnlMain.Controls.Clear();
+            PnlMain.Controls.Add(frmBanHang);
+        }
+
+        private void MenuTKBaoCao_Click(object sender, EventArgs e)
+        {
+            FrmThongKe frmThongKe = new FrmThongKe();
+            PnlMain.Controls.Clear();
+            PnlMain.Controls.Add(frmThongKe);
+        }
     }
 }

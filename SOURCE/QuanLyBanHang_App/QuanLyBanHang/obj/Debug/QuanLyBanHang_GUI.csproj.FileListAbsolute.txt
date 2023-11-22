@@ -22,6 +22,10 @@ C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang_App
 C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang_App\QuanLyBanHang\obj\Debug\QuanLyBanHang.FrmQuanLyThuongHieu.resources
 C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang_App\QuanLyBanHang\obj\Debug\QuanLyBanHang.FrmQuanLySanPham.resources
 C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang_App\QuanLyBanHang\obj\Debug\QuanLyBanHang.FrmQuanLyNhaCungCap.resources
-C:\Users\Khánh\Downloads\QuanLyBanHang_App\QuanLyBanHang\bin\Debug\QuanLyBanHang.exe.config
-C:\Users\Khánh\Downloads\QuanLyBanHang_App\QuanLyBanHang\obj\Debug\QuanLyBanHang.exe
-C:\Users\Khánh\Downloads\QuanLyBanHang_App\QuanLyBanHang\obj\Debug\QuanLyBanHang.pdb
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang_App\QuanLyBanHang\obj\Debug\QuanLyBanHang.FrmQuanLyKhuyenMai.resources
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang_App\QuanLyBanHang\obj\Debug\QuanLyBanHang.FrmQuanLyKho.resources
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang_App\QuanLyBanHang\obj\Debug\QuanLyBanHang.FrmNhapHang.resources
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang_App\QuanLyBanHang\bin\Debug\Aspose.Words.dll
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang_App\QuanLyBanHang\bin\Debug\Aspose.Words.Pdf2Word.dll
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang_App\QuanLyBanHang\obj\Debug\QuanLyBanHang.FrmBanHang.resources
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang_App\QuanLyBanHang\obj\Debug\QuanLyBanHang.FrmThongKe.resources

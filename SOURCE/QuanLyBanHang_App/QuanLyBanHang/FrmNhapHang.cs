@@ -118,8 +118,8 @@ namespace QuanLyBanHang
             if (r == DialogResult.Yes)
             {
                 NhapHangBLL_CT.XoaChiTietPhieuNhap(MaPn, MaKho, MaSp);
-                NhapHangBLL_CT.CapNhatSLSanPhamHuy(MaSp, SLNhap);
-                NhapHangBLL_CT.CapNhatSLTonKhoHuy(MaKho, MaSp, SLNhap);
+                NhapHangBLL_CT.CapNhatSLSanPhamHuy(MaSp, 0);
+                NhapHangBLL_CT.CapNhatSLTonKhoHuy(MaKho, MaSp, 0);
                 lblThanhTien.Text = "Thành tiền:" + TinhTongTien().ToString() + " VND";
             }
             ReloadDataGridView();
@@ -131,7 +131,42 @@ namespace QuanLyBanHang
             {
                 MessageBox.Show("Lưu phiếu nhập hàng không thành công thiếu thông tin sản phẩm!", "Thông báo");
                 return; 
-            }    
+            }
+            foreach (DataGridViewRow row in dataGChiTietNhap.Rows)
+            {
+                // Kiểm tra nếu dòng không phải là dòng cuối cùng (dòng mới thêm, không chứa dữ liệu)
+                if (!row.IsNewRow)
+                {
+                    string MaPn = dataGChiTietNhap.CurrentRow.Cells[0].Value.ToString();
+                    string MaSp = row.Cells[1].Value.ToString();
+                    string MaKho = row.Cells[4].Value.ToString();
+                    int SLNhap = Convert.ToInt32(row.Cells[2].Value.ToString());
+                    if (SLNhap <= 0)
+                    {
+                        MessageBox.Show("Vui lòng nhập số lượng cho sản phẩm có mã " + MaSp, "Thông báo");
+                        return;
+                    }
+
+                    decimal donGiaNhap = Convert.ToDecimal(row.Cells[2].Value.ToString());
+                    ChiTietPhieuNhap CT = new ChiTietPhieuNhap();
+                    CT.MaSanPham = MaSp;
+                    CT.MaPhieuNhap = MaPn;
+                    CT.DonGiaNhap = donGiaNhap;
+                    CT.MaKho = MaKho;
+                    CT.SoLuongNhap = SLNhap;
+                    NhapHangBLL_CT.CapNhatSLSanPhamHuy(MaSp, 0);
+                    NhapHangBLL_CT.CapNhatSLTonKhoHuy(MaKho, MaSp, 0);
+                    NhapHangBLL_CT.CapNhatSLSanPhamThem(MaSp, SLNhap);
+                    NhapHangBLL_CT.CapNhatSLTonKhoThem(MaKho, MaSp, SLNhap);
+                    NhapHangBLL_CT.SuaChiTietPhieuNhap(CT);
+                }
+            }
+
+            NhapHangBLL_CT.CapNhatTongTienChoPhieu(txtMaPhieuNhap.Text.Trim(), TinhTongTien());
+            enableControl(false);
+            btnTaoPhieu.Enabled = true;
+            cboNhaCungCap.Enabled = true;
+            MessageBox.Show("Lưu phiếu nhập hàng thành công !", "Thông báo");
             DialogResult r= MessageBox.Show("Bạn có muốn xuất phiếu nhập hàng không ?", "Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button1);
             if(r == DialogResult.Yes)
             {
@@ -149,7 +184,7 @@ namespace QuanLyBanHang
                 //Bước 3: Điền thông tin lên bảng
                 Table bangThongTinNhapHang = baoCao.GetChild(NodeType.Table, 2, true) as Table;//Lấy bảng thứ 3 trong file mẫu
                 int hangHienTai = 1;
-                bangThongTinNhapHang.InsertRows(hangHienTai, hangHienTai, 3);
+                bangThongTinNhapHang.InsertRows(hangHienTai, hangHienTai, dataGChiTietNhap.Rows.Count);
                 foreach (DataGridViewRow row in dataGChiTietNhap.Rows)
                 {
 
@@ -166,33 +201,7 @@ namespace QuanLyBanHang
                 
                 baoCao.SaveAndOpenFile("PhieuNhapHang_"+txtMaPhieuNhap.Text+".docx");
             }
-            foreach (DataGridViewRow row in dataGChiTietNhap.Rows)
-            {
-                // Kiểm tra nếu dòng không phải là dòng cuối cùng (dòng mới thêm, không chứa dữ liệu)
-                if (!row.IsNewRow)
-                {
-                    string MaPn = dataGChiTietNhap.CurrentRow.Cells[0].Value.ToString();
-                    string MaSp = row.Cells[1].Value.ToString();
-                    string MaKho = row.Cells[4].Value.ToString();
-                    int SLNhap = Convert.ToInt32(row.Cells[2].Value.ToString());
-                    decimal donGiaNhap = Convert.ToDecimal(row.Cells[2].Value.ToString());
-                    ChiTietPhieuNhap CT = new ChiTietPhieuNhap();
-                    CT.MaSanPham = MaSp;
-                    CT.MaPhieuNhap = MaPn;
-                    CT.DonGiaNhap = donGiaNhap;
-                    CT.MaKho = MaKho;
-                    CT.SoLuongNhap = SLNhap;
-                    NhapHangBLL_CT.CapNhatSLSanPhamThem(MaSp, SLNhap);
-                    NhapHangBLL_CT.CapNhatSLTonKhoThem(MaKho, MaSp, SLNhap);
-                    NhapHangBLL_CT.SuaChiTietPhieuNhap(CT);
-                }
-            }
             
-            NhapHangBLL_CT.CapNhatTongTienChoPhieu(txtMaPhieuNhap.Text.Trim(), TinhTongTien());
-            enableControl(false);
-            btnTaoPhieu.Enabled=true;
-            cboNhaCungCap.Enabled = true;
-            MessageBox.Show("Lưu phiếu nhập hàng thành công !", "Thông báo");
 
         }
 
@@ -209,7 +218,7 @@ namespace QuanLyBanHang
                     {
                         string MaSp = row.Cells[1].Value.ToString();
                         string MaKho = row.Cells[4].Value.ToString();
-                        int SLNhap = 1;
+                        int SLNhap = 0;
                         NhapHangBLL_CT.CapNhatSLSanPhamHuy(MaSp, SLNhap);
                         NhapHangBLL_CT.CapNhatSLTonKhoHuy(MaKho, MaSp, SLNhap);
                     }
@@ -222,6 +231,7 @@ namespace QuanLyBanHang
                 btnTaoPhieu.Enabled = true;
                 cboNhaCungCap.Enabled = true;
                 lblThanhTien.Text = "Thành tiền:" + TinhTongTien().ToString() + " VND";
+                ReloadDataGridView();
             }
 
         }
@@ -242,19 +252,17 @@ namespace QuanLyBanHang
             CT.MaKho = cboKho.SelectedValue.ToString();
             CT.MaSanPham = cboSanPham.SelectedValue.ToString();
             CT.DonGiaNhap = Convert.ToDecimal(txtDonGiaNhap.Text.Trim());
-            CT.SoLuongNhap = 1;
+            CT.SoLuongNhap = 0;
             DialogResult r = MessageBox.Show("Bạn có muốn thêm thông tin sản phẩm " + CT.MaSanPham + " vào phiếu nhập hàng không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             if (r == DialogResult.Yes)
             {
-                NhapHangBLL_CT.CapNhatSLSanPhamHuy(CT.MaSanPham, 1);
-                NhapHangBLL_CT.CapNhatSLTonKhoHuy(CT.MaKho, CT.MaSanPham, 1);
+                
                 NhapHangBLL_CT.ThemChiTietPhieuNhap(CT);
                 NhapHangBLL_CT.CapNhatSLSanPhamThem(CT.MaSanPham,Convert.ToInt32(CT.SoLuongNhap));
                 NhapHangBLL_CT.CapNhatSLTonKhoThem(CT.MaKho,CT.MaSanPham, Convert.ToInt32(CT.SoLuongNhap));
             }
             lblThanhTien.Text = "Thành tiền:" + TinhTongTien().ToString() + " VND";
             ReloadDataGridView();
-            NhapHangBLL_CT.ThemChiTietPhieuNhap(CT);
         }
 
         private void txtDonGiaNhap_KeyPress(object sender, KeyPressEventArgs e)
