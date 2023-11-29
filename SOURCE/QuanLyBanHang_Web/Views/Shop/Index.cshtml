@@ -1,0 +1,65 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<QuanLyBanHang_Web.Models.SanPham>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>Shop</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@functions {
+    QuanLyBanHang_Web.Controllers.HomeController home = new QuanLyBanHang_Web.Controllers.HomeController();
+    public decimal tinhGiamGia(string Ma, decimal GiaGoc)
+    {
+        return home.giamGia(Ma, GiaGoc);
+    }
+    QuanLyBanHang_Web.Controllers.ShopController shop = new QuanLyBanHang_Web.Controllers.ShopController();
+    public void ThemVaoGioHang(string Ma, int sl)
+    {
+        shop.ThemVaoGioHang(Ma, sl);
+    }
+
+}
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-shop-product">
+                        <div class="product-upper">
+                            <img src="~/Assets/img/@item.HinhAnh" alt="">
+                        </div>
+                        <h2><a href="/Shop/Detail/@item.MaSanPham">@item.TenSanPham</a></h2>
+                        <div class="product-carousel-price">
+                            <ins>@tinhGiamGia(item.MaKhuyenMai, (decimal)item.Gia) VND</ins> <del>@item.Gia VND</del>
+                        </div>
+
+                        <div class="product-option-shop">
+                            <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="/canvas/shop/?add-to-cart=70">Thêm vào giỏ</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-pagination text-center">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions { Display = PagedListDisplayMode.IfNeeded, MaximumPageNumbersToDisplay = 5 })
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

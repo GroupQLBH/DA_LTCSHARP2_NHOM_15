@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+    <link rel="stylesheet" href="~/Assets/css/account.css">
+    <link rel="stylesheet" href="~/Assets/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="form-container" style="background-image:url(/Assets/img/logo2.jpg)">
+        <div class="form-box">
+            <h2>Đăng ký</h2>
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+            {
+                <div>
+                    @Html.Label("Tên của bạn:", null, new { @class = "form-label" })
+                    @Html.TextBox("fullName", null, new { @class = "form-control" })
+                </div>
+                <div>
+                    @Html.Label("Số điện thoại:", null, new { @class = "form-label" })
+                    @Html.TextBox("username", null, new { @class = "form-control" })
+                </div>
+                <div>
+                    @Html.Label("Mật khẩu:", null, new { @class = "form-label" })
+                    @Html.Password("password", null, new { @class = "form-control" })
+                </div>
+                <div>
+                    <input type="submit" value="Đăng ký" />
+                </div>
+            }
+            <p style="color:red">@ViewBag.ErrorMessage</p>
+        </div>
+    </div>
+</body>
+</html>

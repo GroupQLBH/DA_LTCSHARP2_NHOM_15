@@ -1,0 +1,64 @@
+﻿/* style.css */
+
+/* Định dạng container chứa form */
+
+
+input[type="submit"] {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+/* Định dạng khung form */
+.form-box {
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+    /* Hiệu ứng khi rê chuột vào form */
+    .form-box:hover {
+        transform: scale(1.05);
+    }
+
+/* Hiệu ứng đăng nhập */
+.login-box {
+    transform-origin: bottom left;
+    transform-style: preserve-3d;
+    background: linear-gradient(45deg, #ffcc00, #ff0066);
+}
+
+    .login-box h2 {
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+/* Hiệu ứng đăng ký */
+.register-box {
+    transform-origin: bottom right;
+    transform-style: preserve-3d;
+    background: linear-gradient(45deg, #33ccff, #cc00cc);
+}
+
+    .register-box h2 {
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }

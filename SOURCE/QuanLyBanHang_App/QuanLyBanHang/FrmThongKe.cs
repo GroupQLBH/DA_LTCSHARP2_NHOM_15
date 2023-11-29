@@ -208,5 +208,10 @@ namespace QuanLyBanHang
             }
             pnlThongKe.Controls.Add(ChartThongKe);
         }
+
+        private void btnXuatBaoCao_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

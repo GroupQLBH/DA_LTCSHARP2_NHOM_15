@@ -39,6 +39,7 @@
             this.pnlThongKe = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.btnTKTheoQuyTrongNam = new Guna.UI2.WinForms.Guna2GradientButton();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnXuatBaoCao = new Guna.UI2.WinForms.Guna2GradientButton();
             this.SuspendLayout();
             // 
             // btnTKThangNamHienTai
@@ -236,10 +237,32 @@
             this.label2.TabIndex = 25;
             this.label2.Text = "Thống kê doanh thu hiện tại";
             // 
+            // btnXuatBaoCao
+            // 
+            this.btnXuatBaoCao.CheckedState.Parent = this.btnXuatBaoCao;
+            this.btnXuatBaoCao.CustomImages.Parent = this.btnXuatBaoCao;
+            this.btnXuatBaoCao.FillColor = System.Drawing.Color.Transparent;
+            this.btnXuatBaoCao.FillColor2 = System.Drawing.Color.Transparent;
+            this.btnXuatBaoCao.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXuatBaoCao.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.btnXuatBaoCao.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.btnXuatBaoCao.HoverState.FillColor2 = System.Drawing.Color.Aqua;
+            this.btnXuatBaoCao.HoverState.Parent = this.btnXuatBaoCao;
+            this.btnXuatBaoCao.Image = global::QuanLyBanHang.Properties.Resources.icons8_support_50;
+            this.btnXuatBaoCao.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnXuatBaoCao.Location = new System.Drawing.Point(17, 638);
+            this.btnXuatBaoCao.Name = "btnXuatBaoCao";
+            this.btnXuatBaoCao.ShadowDecoration.Parent = this.btnXuatBaoCao;
+            this.btnXuatBaoCao.Size = new System.Drawing.Size(186, 77);
+            this.btnXuatBaoCao.TabIndex = 26;
+            this.btnXuatBaoCao.Text = "Xuất báo cáo";
+            this.btnXuatBaoCao.Click += new System.EventHandler(this.btnXuatBaoCao_Click);
+            // 
             // FrmThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnXuatBaoCao);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnTKTheoQuyTrongNam);
             this.Controls.Add(this.pnlThongKe);
@@ -271,5 +294,6 @@
         private Guna.UI2.WinForms.Guna2GradientPanel pnlThongKe;
         private Guna.UI2.WinForms.Guna2GradientButton btnTKTheoQuyTrongNam;
         private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2GradientButton btnXuatBaoCao;
     }
 }
