@@ -533,6 +533,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DardBoard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DardBoard_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DardBoard_FormClosed);
             this.Load += new System.EventHandler(this.DardBoard_Load);
             this.PnlMenu.ResumeLayout(false);
             this.PnlMenu.PerformLayout();

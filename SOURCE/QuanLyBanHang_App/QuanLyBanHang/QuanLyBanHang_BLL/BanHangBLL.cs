@@ -268,5 +268,19 @@ namespace QuanLyBanHang_BLL
             if (isNegative) result = "Âm " + result;
             return result + (suffix ? " đồng " : "");
         }
+
+        public string MaKhuyenMai(string Ma)
+        {
+            return _DataContext.SanPhams.Where(sp => sp.MaSanPham == Ma).FirstOrDefault().MaKhuyenMai;
+        }
+        public decimal GiaKhuyenMai(string Ma)
+        {
+            if (MaKhuyenMai(Ma) != null && (MaKhuyenMai(Ma) != ""))
+                return _DataContext.KhuyenMais.Where(km => km.MaKhuyenMai == MaKhuyenMai(Ma)).FirstOrDefault().GiamGia.Value;
+            else
+                return 0;
+
+        }
+
     }
 }

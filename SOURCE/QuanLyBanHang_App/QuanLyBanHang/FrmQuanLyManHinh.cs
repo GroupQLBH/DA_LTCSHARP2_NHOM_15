@@ -161,7 +161,7 @@ namespace QuanLyBanHang
                 {
                     if (quanLyPhanQuyenBLL_CT.TimTenManHinh(tenManHinhTextBox.Text.Trim()) != null)
                     {
-                        MessageBox.Show("Nhà cung cấp này đã tồn tại", "Thông báo");
+                        MessageBox.Show("Màn hình này đã tồn tại", "Thông báo");
                         return;
 
                     }

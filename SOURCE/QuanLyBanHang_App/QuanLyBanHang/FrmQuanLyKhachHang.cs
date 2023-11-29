@@ -111,12 +111,19 @@ namespace QuanLyBanHang
         private void khachHangDataGridView_SelectionChanged(object sender, EventArgs e)
         {
             btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = true;
+            
             maKhachHangTextBox.Text = khachHangDataGridView.CurrentRow.Cells[0].Value.ToString();
             tenKhachHangTextBox.Text = khachHangDataGridView.CurrentRow.Cells[1].Value.ToString();
             diaChiTextBox.Text = khachHangDataGridView.CurrentRow.Cells[2].Value.ToString();
             soDienThoaiTextBox.Text = khachHangDataGridView.CurrentRow.Cells[3].Value.ToString();
             emailTextBox.Text = khachHangDataGridView.CurrentRow.Cells[4].Value.ToString();
-            ngaySinhDateTimePicker.Value =Convert.ToDateTime(khachHangDataGridView.CurrentRow.Cells[5].Value);
+            if (khachHangDataGridView.CurrentRow.Cells[5].Value.ToString() == "")
+            {
+                ngaySinhDateTimePicker.Value = DateTime.Now;
+            }
+            else
+            { ngaySinhDateTimePicker.Value = Convert.ToDateTime(khachHangDataGridView.CurrentRow.Cells[5].Value); }    
+            
             gioiTinhTextBox.Text = khachHangDataGridView.CurrentRow.Cells[6].Value.ToString();
             taiKhoanDataGridView.DataSource = null;
             taiKhoanDataGridView.Rows.Clear();
@@ -181,19 +188,31 @@ namespace QuanLyBanHang
         {
             try
             {
-                if (tenKhachHangTextBox.Text.Trim() == "" ||  soDienThoaiTextBox.Text.Trim() == "")
+                if (tenKhachHangTextBox.Text.Trim() == "")
                 {
-                    MessageBox.Show("Bạn chưa điền đủ thông tin (Họ Tên hoặc Số Điện Thoại) !", "Thông báo");
+                    MessageBox.Show("Bạn chưa điền họ tên khách hàng !", "Thông báo");
                     return;
                 }
                 
-                if (!IsValidPhoneNumber(soDienThoaiTextBox.Text.Trim()))
+                if (!IsValidPhoneNumber(soDienThoaiTextBox.Text.Trim()) && soDienThoaiTextBox.Text.Trim()!="")
                 {
                     MessageBox.Show("Vui lòng nhập một số điện thoại hợp lệ !", "Thông báo");
                     return;
                 }
 
-                if (!IsValidEmail(emailTextBox.Text.Trim()))
+                if (soDienThoaiTextBox.Text.Trim() != "" && QuanLyKhachHangBLL_CT.TimSDTKhachHang(soDienThoaiTextBox.Text.Trim()) !=null )
+                {
+                    MessageBox.Show("Số điện thoại đã được sử dụng!", "Thông báo");
+                    return;
+                }
+
+                if ( soDienThoaiTextBox.Text.Trim() != null && QuanLyKhachHangBLL_CT.TimEmailKhachHang(emailTextBox.Text.Trim()) !=null)
+                {
+                    MessageBox.Show("Email đã được sử dụng!", "Thông báo");
+                    return;
+                }
+
+                if (!IsValidEmail(emailTextBox.Text.Trim()) && emailTextBox.Text.Trim()!="")
                 {
                     MessageBox.Show("Vui lòng nhập một email hợp lệ !", "Thông báo");
                     return;

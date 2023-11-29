@@ -37,11 +37,6 @@ namespace QuanLyBanHang
 
                 DardBoard dardBoard = new DardBoard(txtTenDangNhap.Text.Trim());
                 dardBoard.Show();
-                QL_NguoiDung QL=new QL_NguoiDung();
-                QL.TenDangNhap = txtTenDangNhap.Text;
-                QL.MatKhau = txtMatKhau.Text;
-                QL.HoatDong = true;
-                DangNhapBLL_CT.SuaTinhTrangHoatDong(QL);
             }
 
             
@@ -51,11 +46,6 @@ namespace QuanLyBanHang
 
         private void FrmDangNhap_FormClosed(object sender, FormClosedEventArgs e)
         {
-            QL_NguoiDung QL = new QL_NguoiDung();
-            QL.TenDangNhap = txtTenDangNhap.Text;
-            QL.MatKhau = txtMatKhau.Text;
-            QL.HoatDong = false;
-            DangNhapBLL_CT.SuaTinhTrangHoatDong(QL);
         }
 
         private void btnDoiMatKhau_Click(object sender, EventArgs e)

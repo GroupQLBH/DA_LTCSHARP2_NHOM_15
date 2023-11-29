@@ -345,7 +345,7 @@ namespace QuanLyBanHang
                 banHangBLL_CT.CapNhatSLSanPhamHuy(CT.MaSanPham, Convert.ToInt32(CT.SoLuong));
                 banHangBLL_CT.CapNhatSLTonKhoHuy(CT.MaKho, CT.MaSanPham, Convert.ToInt32(CT.SoLuong));
             }
-            
+            dataGChiTietDon.Enabled = true;
             ReloadDataGridViewChiTietDon();
         }
 
@@ -403,7 +403,8 @@ namespace QuanLyBanHang
                 dataGChiTietDon.CurrentRow.Cells[2].Value = 0;
                 return;
             }
-            dataGChiTietDon.CurrentRow.Cells[4].Value = (double)(Convert.ToDecimal(dataGChiTietDon.CurrentRow.Cells[2].Value) * Convert.ToDecimal(dataGChiTietDon.CurrentRow.Cells[3].Value));
+            double giamgia= (double)(Convert.ToDecimal(dataGChiTietDon.CurrentRow.Cells[2].Value) * Convert.ToDecimal(dataGChiTietDon.CurrentRow.Cells[3].Value) * banHangBLL_CT.GiaKhuyenMai(maSp));
+            dataGChiTietDon.CurrentRow.Cells[4].Value = (double)(Convert.ToDecimal(dataGChiTietDon.CurrentRow.Cells[2].Value) * Convert.ToDecimal(dataGChiTietDon.CurrentRow.Cells[3].Value)) - giamgia;
             lblTongTien.Text = "Thành tiền:" + TinhTongTien().ToString();
         }
     }

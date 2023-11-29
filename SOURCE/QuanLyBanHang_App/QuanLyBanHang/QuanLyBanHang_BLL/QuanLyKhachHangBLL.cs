@@ -22,6 +22,15 @@ namespace QuanLyBanHang_BLL
             return _DataContext.KhachHangs.Where(nv => nv.MaKhachHang == Ma).FirstOrDefault();
         }
 
+        public KhachHang TimSDTKhachHang(string Sdt)
+        {
+            return _DataContext.KhachHangs.Where(nv => nv.SoDienThoai == Sdt).FirstOrDefault();
+        }
+
+        public KhachHang TimEmailKhachHang(string email)
+        {
+            return _DataContext.KhachHangs.Where(nv => nv.Email == email).FirstOrDefault();
+        }
         public void SuaKhachHang(KhachHang NV)
         {
             if (TimKhachHang(NV.MaKhachHang) != null)
@@ -40,10 +49,19 @@ namespace QuanLyBanHang_BLL
             if (TimKhachHang(Ma) != null)
             {
                 _DataContext.KhachHangs.DeleteOnSubmit(TimKhachHang(Ma));
+                XoaTaiKhoan(Ma);
                 _DataContext.SubmitChanges();
             }
         }
 
+        public void XoaTaiKhoan(string Ma)
+        {
+            if (TimTK(Ma) != null)
+            {
+                _DataContext.TaiKhoans.DeleteOnSubmit(TimTK(Ma));
+                _DataContext.SubmitChanges();
+            }
+        }
         public string MaKhachHangTuDong()
         {
             var lastKhachHang = _DataContext.KhachHangs.OrderByDescending(nv => nv.MaKhachHang).FirstOrDefault();
@@ -57,7 +75,10 @@ namespace QuanLyBanHang_BLL
             return null;
         }
 
-
+        public TaiKhoan TimTK(string Ma)
+        {
+            return _DataContext.TaiKhoans.Where(tk => tk.MaKhachHang == Ma).FirstOrDefault();
+        }
         public List<TaiKhoan> TimTaiKhoan(string Ma)
         {
             return _DataContext.TaiKhoans.Where(tk => tk.MaKhachHang == Ma).ToList();

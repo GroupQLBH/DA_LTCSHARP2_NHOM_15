@@ -16,8 +16,13 @@ namespace QuanLyBanHang
     {
         static string TenNhanVien;
         DardBoardBLL DardBoardBLL_CT = new DardBoardBLL();
+
         public DardBoard(string TenDangNhap)
         {
+            QL_NguoiDung QL = new QL_NguoiDung();
+            QL.TenDangNhap = TenDangNhap;
+            QL.HoatDong = true;
+            DardBoardBLL_CT.SuaTinhTrangHoatDong(QL);
             TenNhanVien = TenDangNhap;
             InitializeComponent();
         }
@@ -154,6 +159,19 @@ namespace QuanLyBanHang
             FrmThongKe frmThongKe = new FrmThongKe();
             PnlMain.Controls.Clear();
             PnlMain.Controls.Add(frmThongKe);
+        }
+
+        private void DardBoard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+        }
+
+        private void DardBoard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            QL_NguoiDung QL = new QL_NguoiDung();
+            QL.TenDangNhap = TenNhanVien;
+            QL.HoatDong = false;
+            DardBoardBLL_CT.SuaTinhTrangHoatDong(QL);
         }
     }
 }

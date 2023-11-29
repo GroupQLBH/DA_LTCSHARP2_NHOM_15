@@ -81,7 +81,7 @@
             this.thuongHieuComboBox = new System.Windows.Forms.ComboBox();
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnChonAnh = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.picSanPham = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.picSanPham = new Guna.UI2.WinForms.Guna2PictureBox();
             maSanPhamLabel = new System.Windows.Forms.Label();
             tenSanPhamLabel = new System.Windows.Forms.Label();
             giaLabel = new System.Windows.Forms.Label();
@@ -659,11 +659,10 @@
             // 
             // picSanPham
             // 
-            this.picSanPham.Location = new System.Drawing.Point(759, 67);
+            this.picSanPham.Location = new System.Drawing.Point(757, 88);
             this.picSanPham.Name = "picSanPham";
-            this.picSanPham.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.picSanPham.ShadowDecoration.Parent = this.picSanPham;
-            this.picSanPham.Size = new System.Drawing.Size(288, 208);
+            this.picSanPham.Size = new System.Drawing.Size(300, 200);
             this.picSanPham.TabIndex = 37;
             this.picSanPham.TabStop = false;
             // 
@@ -761,6 +760,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private Guna.UI2.WinForms.Guna2TextBox txtTimKiem;
         private Guna.UI2.WinForms.Guna2GradientButton btnChonAnh;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox picSanPham;
+        private Guna.UI2.WinForms.Guna2PictureBox picSanPham;
     }
 }

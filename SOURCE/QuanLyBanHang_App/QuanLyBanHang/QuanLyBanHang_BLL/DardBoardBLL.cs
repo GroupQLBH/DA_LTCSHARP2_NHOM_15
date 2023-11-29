@@ -24,5 +24,17 @@ namespace QuanLyBanHang_BLL
         {
             return _DataContext.NhanViens.Where(nv=>nv.MaNhanVien == Ma).FirstOrDefault().HoTen;
         }
+        public QL_NguoiDung TimTaiKhoan(string Ten)
+        {
+            return _DataContext.QL_NguoiDungs.Where(tk => tk.TenDangNhap == Ten).FirstOrDefault();
+        }
+        public void SuaTinhTrangHoatDong(QL_NguoiDung TK)
+        {
+            if (TimTaiKhoan(TK.TenDangNhap) != null)
+            {
+                TimTaiKhoan(TK.TenDangNhap).HoatDong = TK.HoatDong;
+                _DataContext.SubmitChanges();
+            }
+        }
     }
 }
