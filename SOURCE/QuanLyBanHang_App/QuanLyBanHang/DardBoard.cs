@@ -1,4 +1,5 @@
-﻿using Guna.UI2.WinForms;
+﻿using DemoReviewApp;
+using Guna.UI2.WinForms;
 using QuanLyBanHang_BLL;
 using System;
 using System.Collections.Generic;
@@ -29,9 +30,27 @@ namespace QuanLyBanHang
 
         private void DardBoard_Load(object sender, EventArgs e)
         {
+            
             timer1.Start();
             lblTenNguoiDung.Text = "Người dùng :" + DardBoardBLL_CT.TenNhanVien(TenNhanVien);
             FindMenuPhanQuyen();
+            LoadSanPham();
+            
+
+        }
+
+        private void LoadSanPham()
+        {
+            if (PnlMain != null)
+            {
+                PnlMain.Controls.Clear();
+                foreach (SanPham item in DardBoardBLL_CT.DsSanPham())
+                {
+                    CardProduct product = new CardProduct();
+                    product.SetProductInfo(item.MaSanPham,item.TenSanPham, (decimal)item.Gia, 5, item.HinhAnh);
+                    PnlMain.Controls.Add(product);
+                }
+            }
 
         }
         private void FindMenuPhanQuyen()
@@ -172,6 +191,11 @@ namespace QuanLyBanHang
             QL.TenDangNhap = TenNhanVien;
             QL.HoatDong = false;
             DardBoardBLL_CT.SuaTinhTrangHoatDong(QL);
+        }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+            LoadSanPham();
         }
     }
 }

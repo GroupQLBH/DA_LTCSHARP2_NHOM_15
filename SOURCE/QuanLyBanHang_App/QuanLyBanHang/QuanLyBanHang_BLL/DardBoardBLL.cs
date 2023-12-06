@@ -36,5 +36,10 @@ namespace QuanLyBanHang_BLL
                 _DataContext.SubmitChanges();
             }
         }
+        
+        public List<SanPham> DsSanPham()
+        {
+            return _DataContext.SanPhams.ToList();
+        }
     }
 }

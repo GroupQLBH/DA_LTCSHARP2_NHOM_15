@@ -1,0 +1,7 @@
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang_App\QuanLyBanHang\QuanLyBanHang_BLL\bin\x86\Debug\QuanLyBanHang_BLL.dll.config
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang_App\QuanLyBanHang\QuanLyBanHang_BLL\bin\x86\Debug\QuanLyBanHang_BLL.dll
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang_App\QuanLyBanHang\QuanLyBanHang_BLL\bin\x86\Debug\QuanLyBanHang_BLL.pdb
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang_App\QuanLyBanHang\QuanLyBanHang_BLL\obj\x86\Debug\QuanLyBanHang_BLL.csproj.AssemblyReference.cache
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang_App\QuanLyBanHang\QuanLyBanHang_BLL\obj\x86\Debug\QuanLyBanHang_BLL.csproj.CoreCompileInputs.cache
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang_App\QuanLyBanHang\QuanLyBanHang_BLL\obj\x86\Debug\QuanLyBanHang_BLL.dll
+C:\Users\hp\OneDrive\Máy tính\HocKy7\PhatTrienUngDungHienDai\QuanLyBanHang_App\QuanLyBanHang\QuanLyBanHang_BLL\obj\x86\Debug\QuanLyBanHang_BLL.pdb

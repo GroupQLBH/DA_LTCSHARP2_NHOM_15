@@ -50,8 +50,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnDangXuat = new Guna.UI2.WinForms.Guna2GradientButton();
             this.lblNgayHienTai = new System.Windows.Forms.Label();
-            this.PnlMain = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.PnlMain = new System.Windows.Forms.FlowLayoutPanel();
             this.PnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.PnlInfo.SuspendLayout();
@@ -78,7 +78,7 @@
             this.PnlMenu.Location = new System.Drawing.Point(2, 2);
             this.PnlMenu.Name = "PnlMenu";
             this.PnlMenu.ShadowDecoration.Parent = this.PnlMenu;
-            this.PnlMenu.Size = new System.Drawing.Size(411, 809);
+            this.PnlMenu.Size = new System.Drawing.Size(411, 935);
             this.PnlMenu.TabIndex = 0;
             // 
             // MenuTKBaoCao
@@ -405,6 +405,7 @@
             this.guna2PictureBox1.TabIndex = 7;
             this.guna2PictureBox1.TabStop = false;
             this.guna2PictureBox1.UseTransparentBackground = true;
+            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // MenuQLNguoiDung
             // 
@@ -509,23 +510,23 @@
             this.lblNgayHienTai.TabIndex = 0;
             this.lblNgayHienTai.Text = "Ngày hiện tại:";
             // 
-            // PnlMain
-            // 
-            this.PnlMain.Location = new System.Drawing.Point(419, 84);
-            this.PnlMain.Name = "PnlMain";
-            this.PnlMain.ShadowDecoration.Parent = this.PnlMain;
-            this.PnlMain.Size = new System.Drawing.Size(1259, 727);
-            this.PnlMain.TabIndex = 2;
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // PnlMain
+            // 
+            this.PnlMain.AutoScroll = true;
+            this.PnlMain.Location = new System.Drawing.Point(419, 84);
+            this.PnlMain.Name = "PnlMain";
+            this.PnlMain.Size = new System.Drawing.Size(1493, 853);
+            this.PnlMain.TabIndex = 0;
             // 
             // DardBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1690, 808);
+            this.ClientSize = new System.Drawing.Size(1924, 949);
             this.Controls.Add(this.PnlMain);
             this.Controls.Add(this.PnlInfo);
             this.Controls.Add(this.PnlMenu);
@@ -549,7 +550,6 @@
         #endregion
         private Guna.UI2.WinForms.Guna2GradientPanel PnlMenu;
         private Guna.UI2.WinForms.Guna2GradientPanel PnlInfo;
-        private Guna.UI2.WinForms.Guna2GradientPanel PnlMain;
         private System.Windows.Forms.Label lblNgayHienTai;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2GradientButton btnDangXuat;
@@ -570,5 +570,6 @@
         private Guna.UI2.WinForms.Guna2GradientButton MenuQLKhuyeMai;
         private Guna.UI2.WinForms.Guna2GradientButton MenuTKBaoCao;
         private Guna.UI2.WinForms.Guna2GradientButton MenuQLNhapHang;
+        private System.Windows.Forms.FlowLayoutPanel PnlMain;
     }
 }

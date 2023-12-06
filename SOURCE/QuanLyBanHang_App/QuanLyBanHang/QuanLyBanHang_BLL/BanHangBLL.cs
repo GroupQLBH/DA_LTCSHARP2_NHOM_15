@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QuanLyBanHang_BLL
 {
@@ -111,7 +115,7 @@ namespace QuanLyBanHang_BLL
                 numberPart++;
                 return "DH" + numberPart.ToString("D2");
             }
-            return null;
+            return "DH01";
         }
         public TonKho TimTonKho(string MaKho, string MaSp)
         {
@@ -280,6 +284,58 @@ namespace QuanLyBanHang_BLL
             else
                 return 0;
 
+        }
+        public List<SanPham> DsSanPham()
+        {
+            return _DataContext.SanPhams.ToList();
+        }
+
+        public List<ChiTietDonHang> DsChiTietDonHang(string Ma)
+        {
+            return _DataContext.ChiTietDonHangs.Where(ct => ct.MaDonHang == Ma).ToList();
+        }
+
+        public ChiTietDonHang TimChiTietDonHang(string MaSP)
+        {
+            return _DataContext.ChiTietDonHangs.Where(nv => nv.MaSanPham == MaSP).FirstOrDefault();
+        }
+        public List<string> DsMuaKem(string Ma)
+        {
+            if (TimChiTietDonHang(Ma) != null)
+            {
+                List<ChiTietDonHang> CT = _DataContext.ChiTietDonHangs.Where(ct => ct.MaSanPham == Ma).Distinct().ToList();
+                List<DonHang> DsDH = new List<DonHang>();
+                foreach(var d in CT)
+                {
+                    DsDH.Add(_DataContext.DonHangs.Where(dh => dh.MaDonHang == d.MaDonHang).FirstOrDefault());
+                }    
+                List<ChiTietDonHang> DsCT = new List<ChiTietDonHang>();
+                foreach (var item in DsDH)
+                {
+                    foreach (var ctitem in DsChiTietDonHang(item.MaDonHang))
+                    {
+                        if (ctitem.MaSanPham != Ma)
+                        {
+                            DsCT.Add(ctitem);
+                            Console.WriteLine("Mã sản phẩm" + ctitem.MaSanPham);
+                        }
+
+                    }
+                }
+
+                var KetQuaDeXuat = DsCT.GroupBy(o => o.MaSanPham).Select(dh => new { dh.Key, Count = dh.Count() }).OrderByDescending(s => s.Count).ToList();
+                List<string> CacSanPhamDeXuat = new List<string>();
+                foreach (var item in KetQuaDeXuat)
+                {
+                    CacSanPhamDeXuat.Add(item.Key);
+                    Console.WriteLine("Mã sản phẩm" + item.Key);
+                }
+                return CacSanPhamDeXuat;
+            }
+            else
+            {
+                return null;
+            }
         }
 
     }

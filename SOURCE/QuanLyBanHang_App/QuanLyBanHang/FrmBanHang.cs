@@ -12,6 +12,7 @@ using Aspose.Words;
 using QuanLyBanHang_BLL;
 using QuanLyBanHang.Templates;
 using System.Runtime.InteropServices;
+using DemoReviewApp;
 
 namespace QuanLyBanHang
 {
@@ -27,6 +28,7 @@ namespace QuanLyBanHang
 
         private void FrmBanHang_Load(object sender, EventArgs e)
         {
+            LoadSanPham();
             this.donHangTableAdapter.Fill(quanLyBanHang_DataSet.DonHang);
             this.khachHangTableAdapter.Fill(quanLyBanHang_DataSet.KhachHang);
             this.sanPhamTableAdapter.Fill(quanLyBanHang_DataSet.SanPham);
@@ -50,6 +52,7 @@ namespace QuanLyBanHang
             txtTonKho.Enabled = false;
             txtMaDon.Enabled = false;
             dataGDonHang.Enabled = true;
+            
 
         }
         private double TinhTongTien()
@@ -86,8 +89,13 @@ namespace QuanLyBanHang
                 // Cập nhật dữ liệu từ cơ sở dữ liệu bằng TableAdapter
                 this.donHangTableAdapter.Fill(this.quanLyBanHang_DataSet.DonHang);
 
+                
                 // Gán nguồn dữ liệu mới cho DataGridView
                 dataGDonHang.DataSource = quanLyBanHang_DataSet.DonHang;
+                int lastRow = dataGDonHang.Rows.Count - 1;
+                dataGDonHang.Rows[lastRow].Selected = true;
+                ReloadDataGridViewChiTietDon();
+
                 lblTongTien.Text = "Thành tiền:" + TinhTongTien().ToString();
             }
             catch (Exception ex)
@@ -119,7 +127,7 @@ namespace QuanLyBanHang
         }
         private void btnTaoHoaDon_Click(object sender, EventArgs e)
         {
-            dataGChiTietDon.Rows[dataGChiTietDon.Rows.Count - 1].Cells[0].Selected = true;
+            
             if (cboKhachHang.Text == "")
             {
                 MessageBox.Show("Vui lòng chọn thông tin khách hàng !", "Thông Báo");
@@ -150,8 +158,9 @@ namespace QuanLyBanHang
             else
             {
                 enableControl(true);
-            }    
-            dataGChiTietDon.Enabled = false;
+            }
+            PnlSanPham.Enabled = true;
+            //dataGDonHang.Enabled = false;
             btnTaoHoaDon.Enabled = false;
             btnSua.Enabled = false;
             cboKhachHang.Enabled = cboTrangThai.Enabled = dTNgayDat.Enabled = dTNgayGiao.Enabled = false;
@@ -247,7 +256,7 @@ namespace QuanLyBanHang
             btnSua.Enabled = true;
             ReloadDataGridView();
             cboKhachHang.Enabled = cboTrangThai.Enabled = dTNgayDat.Enabled = dTNgayGiao.Enabled = true;
-            MessageBox.Show("Lưu phiếu nhập hàng thành công !", "Thông báo");
+            MessageBox.Show("Lưu đơn hàng thành công !", "Thông báo");
             DialogResult r = MessageBox.Show("Bạn có muốn xuất hóa đơn bán hàng không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             if (r == DialogResult.Yes)
             {
@@ -330,6 +339,12 @@ namespace QuanLyBanHang
                 return;
             }
 
+            if (txtTonKho.Text.Trim() == "0" )
+            {
+                MessageBox.Show("Hết sản phẩm vui lòng chọn kho khác !", "Thông Báo");
+                return;
+            }
+
             ChiTietDonHang CT = new ChiTietDonHang();
             CT.MaSanPham = cboSanPham.SelectedValue.ToString();
             CT.MaKho = cboKho.SelectedValue.ToString();
@@ -344,6 +359,7 @@ namespace QuanLyBanHang
                 banHangBLL_CT.ThemChiTietDonHang(CT);
                 banHangBLL_CT.CapNhatSLSanPhamHuy(CT.MaSanPham, Convert.ToInt32(CT.SoLuong));
                 banHangBLL_CT.CapNhatSLTonKhoHuy(CT.MaKho, CT.MaSanPham, Convert.ToInt32(CT.SoLuong));
+                ReloadDataGridViewChiTietDon();
             }
             dataGChiTietDon.Enabled = true;
             ReloadDataGridViewChiTietDon();
@@ -363,16 +379,28 @@ namespace QuanLyBanHang
         {
             string maKho = cboKho.SelectedValue.ToString();
             string maSp = cboSanPham.SelectedValue.ToString();
-            int? sl = banHangBLL_CT.TimTonKho(maKho, maSp).SoLuongTon;
-            txtTonKho.Text = sl.ToString();
+            if(banHangBLL_CT.TimTonKho(maKho, maSp) !=null)
+            { 
+                int? sl = banHangBLL_CT.TimTonKho(maKho, maSp).SoLuongTon;
+                txtTonKho.Text = sl.ToString();
+            }    
+            else
+            { txtTonKho.Text = "0"; }    
+            
         }
 
         private void cboSanPham_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            LoadDeXuatSanPham();
             string maKho = cboKho.SelectedValue.ToString();
             string maSp = cboSanPham.SelectedValue.ToString();
-            int? sl = banHangBLL_CT.TimTonKho(maKho, maSp).SoLuongTon;
-            txtTonKho.Text = sl.ToString();
+            if (banHangBLL_CT.TimTonKho(maKho, maSp) != null)
+            {
+                int? sl = banHangBLL_CT.TimTonKho(maKho, maSp).SoLuongTon;
+                txtTonKho.Text = sl.ToString();
+            }
+            else
+            { txtTonKho.Text = "0"; }
         }
 
         private void dataGChiTietDon_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -407,5 +435,90 @@ namespace QuanLyBanHang
             dataGChiTietDon.CurrentRow.Cells[4].Value = (double)(Convert.ToDecimal(dataGChiTietDon.CurrentRow.Cells[2].Value) * Convert.ToDecimal(dataGChiTietDon.CurrentRow.Cells[3].Value)) - giamgia;
             lblTongTien.Text = "Thành tiền:" + TinhTongTien().ToString();
         }
+        // Phương thức để đề xuất sản phẩm mua kèm
+        private void LoadSanPham()
+        {
+            if (PnlSanPham != null)
+            {
+                PnlSanPham.Controls.Clear();
+                foreach (SanPham item in banHangBLL_CT.DsSanPham())
+                {
+                    CardProduct product = new CardProduct();
+                    product.SetProductInfo(item.MaSanPham, item.TenSanPham, (decimal)item.Gia, 5, item.HinhAnh);
+                    product.UserControlClicked += (sender, e) =>
+                    {
+                        if (sender is CardProduct clickedControl)
+                        {
+                            // Lấy tên của User Control và load ra Label
+                            cboSanPham.SelectedValue = clickedControl.MaSanPham.ToString();
+                            LoadDeXuatSanPham();
+                            string maKho = cboKho.SelectedValue.ToString();
+                            string maSp = cboSanPham.SelectedValue.ToString();
+                            int? sl = banHangBLL_CT.TimTonKho(maKho, maSp).SoLuongTon;
+                            txtTonKho.Text = sl.ToString();
+                            LoadDeXuatSanPham();
+                        }
+                    };
+                    PnlSanPham.Controls.Add(product);
+                }
+            }
+
+        }
+
+        private void PnlSanPham_Click(object sender, EventArgs e)
+        {
+            if (sender is CardProduct clickedControl)
+            {
+                // Lấy tên của User Control và load ra Label
+                cboSanPham.SelectedValue = clickedControl.MaSanPham;
+            }
+        }
+
+        public bool TonTaiDeXuat(string MaSp)
+        {
+            return dataGChiTietDon.Rows.Cast<DataGridViewRow>().Any(row => row.Cells[1].Value.ToString() == MaSp);
+        }
+        private void LoadDeXuatSanPham()
+        {
+            if (PnlDeXuat != null)
+            {
+                PnlDeXuat.Controls.Clear();
+                foreach (SanPham item in banHangBLL_CT.DsSanPham())
+                {
+                    if (banHangBLL_CT.DsMuaKem(cboSanPham.SelectedValue.ToString()) != null)
+                    {
+      
+                        foreach (string SanPhamDeXuat in banHangBLL_CT.DsMuaKem(cboSanPham.SelectedValue.ToString()))
+                        {
+                            
+                            if (item.MaSanPham == SanPhamDeXuat && TonTaiDeXuat(item.MaSanPham)==false)
+                            {
+                                CardProduct product = new CardProduct();
+                                product.SetProductInfo(item.MaSanPham, item.TenSanPham, (decimal)item.Gia, 5, item.HinhAnh);
+                                product.UserControlClicked += (sender, e) =>
+                                {
+                                    if (sender is CardProduct clickedControl)
+                                    {
+                                        // Lấy tên của User Control và load ra Label
+                                        cboSanPham.SelectedValue = clickedControl.MaSanPham.ToString();
+                                        string maKho = cboKho.SelectedValue.ToString();
+                                        string maSp = cboSanPham.SelectedValue.ToString();
+                                        int? sl = banHangBLL_CT.TimTonKho(maKho, maSp).SoLuongTon;
+                                        txtTonKho.Text = sl.ToString();
+                                    }
+                                };
+                                PnlDeXuat.Controls.Add(product);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            }
+
+        }
+
     }
 }
