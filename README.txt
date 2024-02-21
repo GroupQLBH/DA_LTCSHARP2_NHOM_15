@@ -1,8 +1,4 @@
 # Đồ án quản lý bán hàng 
-# Các thành viên nhóm:
-    -Nguyễn Quang Vinh - 2001206911
-    -Vương Đức Khánh - 2001207096
-    -Nguyễn Phạm Hoàng Khang - 2001206933
  CHƯƠNG 1.	TỔNG QUAN
 1.1.Định nghĩa vấn đề
 Trong xu thế công nghệ số phát triển mạnh mẽ, hình thức kinh doanh trực tuyến ngày càng phổ biến. Theo thống kê, doanh số bán lẻ trực tuyến tại Việt Nam tăng trưởng 30-50% mỗi năm. Điều này cho thấy nhu cầu mua sắm trực tuyến ngày càng lớn. Tuy nhiên, nhiều doanh nghiệp Việt Nam vẫn chưa khai thác triệt để kênh bán hàng online. Hệ thống quản lý bán hàng còn thủ công, dữ liệu phân tán gây khó khăn cho việc mở rộng kinh doanh.
